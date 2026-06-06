@@ -20,7 +20,7 @@ html, body {
   color: var(--fg);
   font-family: 'JetBrains Mono', monospace;
   -webkit-font-smoothing: antialiased;
-  cursor: url('rocmine.cur'), auto;
+  cursor: url('https://raw.githubusercontent.com/Rocmine/RocmineFrontPage/refs/heads/main/rocmine.cur'), auto;
 }
 @media (max-height: 560px) {
   html, body { overflow-y: auto; }
@@ -147,7 +147,7 @@ html, body {
   top: 0; right: 0; bottom: 0;
   width: 42%;
   z-index: 0;
-  background-image: url('imgrocmine.png');
+  background-image: url('https://raw.githubusercontent.com/Rocmine/RocmineFrontPage/refs/heads/main/imgrocmine.png');
   background-size: auto 90%;
   background-position: center top;
   background-repeat: no-repeat;
