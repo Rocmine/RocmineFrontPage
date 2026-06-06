@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROCMINE — Rochdi Mohamed Amine</title>
+  <meta name="description" content="Infrastructure &amp; Server Engineer. ROCMINE — rocmine.net" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Unbounded', 'sans-serif'],
+            mono:    ['JetBrains Mono', 'monospace'],
+          },
+        },
+      },
+    }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="Background.jpg" type="image/jpeg" />
+</head>
+<body>
+
+<!-- grain: single background texture -->
+<div id="grain" aria-hidden="true"></div>
+
+<!-- full-bleed layout grid -->
+<div id="grid">
+
+  <!-- ─── HEADER ──────────────────────────────────────────────────────── -->
+  <header id="header">
+
+    <div class="header-left reveal d-0">
+      <video class="avatar" id="logo-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
+        <source src="ChromeLogoRotatingFHD0001-0300.webm" type="video/webm" />
+        <source src="ChromeLogoRotating0001-0300.webm"    type="video/webm" />
+      </video>
+      <span class="logotype">ROCMINE</span>
+    </div>
+
+    <div class="header-right reveal d-1">
+      <span class="role-line" aria-label="Role: infrastructure and server engineer">
+        <span class="role-prompt">~/</span><span class="role-text"> infrastructure &amp; server engineer</span><span class="cursor" aria-hidden="true"></span>
+      </span>
+      <span class="status-badge" aria-label="Status: available">
+        <span class="status-dot" aria-hidden="true"></span>Available
+      </span>
+    </div>
+
+  </header>
+
+  <!-- ─── MAIN ────────────────────────────────────────────────────────── -->
+  <main id="main">
+
+    <!-- Portrait: faded background, transparent left → visible right -->
+    <div id="portrait-bg" aria-hidden="true"></div>
+
+    <!-- Left column: name block + specialties (flex, vertically centered) -->
+    <div class="left-col">
+
+      <div class="name-block" aria-label="Rochdi Mohamed Amine">
+        <span class="name-line reveal d-2">ROCHDI</span>
+        <span class="name-line reveal d-3">MOHAMED</span>
+        <span class="name-line reveal d-4">AMINE</span>
+        <p class="name-tagline reveal d-5">Building systems that scale.<br>Designing infrastructure that holds.</p>
+      </div>
+
+      <!-- Specialties — numbered inline list -->
+      <ol class="specialties reveal d-6" aria-label="Areas of expertise">
+        <li><span class="spec-num">01</span>Systems</li>
+        <li><span class="spec-num">02</span>Cloud</li>
+        <li><span class="spec-num">03</span>Backend</li>
+        <li><span class="spec-num">04</span>DevOps</li>
+      </ol>
+
+    </div>
+
+    <!-- Full-width ticker at bottom — infinite marquee -->
+    <p class="stack-ticker reveal d-7" aria-label="Tech stack: LINUX DOCKER NGINX K8S PYTHON NODE BASH GIT">
+      <span class="ticker-label">STACK</span>
+      <span class="ticker-rule">──</span>
+      <span class="ticker-body">
+        <span class="ticker-run">
+          <span class="ticker-items">LINUX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; K8S &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; NODE &nbsp;·&nbsp; BASH &nbsp;·&nbsp; GIT</span>
+          <span class="ticker-items" aria-hidden="true">LINUX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; K8S &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; NODE &nbsp;·&nbsp; BASH &nbsp;·&nbsp; GIT</span>
+        </span>
+      </span>
+    </p>
+
+  </main>
+
+  <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
+  <footer id="footer">
+
+    <nav class="footer-links reveal d-7" aria-label="Contact and social links">
+      <!-- email: click copies to clipboard, also opens mailto as fallback -->
+      <button
+        class="link-btn"
+        id="btn-email"
+        data-email="amine.rochdi@rocmine.net"
+        aria-label="Copy email address"
+      >email</button>
+      <span class="link-sep" aria-hidden="true">·</span>
+      <!-- replace href with your real GitHub profile -->
+      <a class="link-btn" href="https://github.com/ROCMINE" id="btn-github" target="_blank" rel="noopener noreferrer">github</a>
+      <span class="link-sep" aria-hidden="true">·</span>
+      <!-- replace href with your real LinkedIn profile -->
+      <a class="link-btn" href="https://linkedin.com/in/rocmine" id="btn-linkedin" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </nav>
+
+    <div class="footer-right reveal d-7">
+      <a href="https://rocmine.net" target="_blank" rel="noopener noreferrer" class="site-link">rocmine.net</a>
+      <span class="footer-copy">© <span id="year"></span></span>
+    </div>
+
+  </footer>
+
+</div>
+
+<div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
