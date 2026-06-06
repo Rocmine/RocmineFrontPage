@@ -145,7 +145,7 @@ html, body {
 #portrait-bg {
   position: absolute;
   top: 0; right: 0; bottom: 0;
-  width: 42%;
+  width: 46%;
   z-index: 0;
   background-image: url('https://raw.githubusercontent.com/Rocmine/RocmineFrontPage/refs/heads/main/imgrocmine.png');
   background-size: auto 90%;
@@ -161,6 +161,22 @@ html, body {
 @keyframes portrait-in {
   from { opacity: 0; transform: translateX(18px); }
   to   { opacity: 0.28; transform: translateX(0); }
+}
+
+/* ─── EDGE LABEL (decorative vertical right strip) ───────────────────────── */
+#edge-label {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: 0.38rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(236,236,242,0.1);
+  user-select: none;
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* ─── LEFT COLUMN (flex, vertically centered) ────────────────────────────── */
@@ -181,6 +197,13 @@ html, body {
   overflow: visible;
   padding-left: clamp(0.7rem, 1.4vw, 1.1rem);
 }
+
+.name-block span {
+  display: block;
+  overflow: hidden;
+  font-size: clamp(3rem, 10vw, 8rem);
+}
+
 .name-block::before {
   content: '';
   position: absolute;
@@ -193,6 +216,41 @@ html, body {
 }
 @keyframes rail-draw {
   to { transform: scaleY(1); }
+}
+
+/* ─── STATS ROW (GitHub info below specialties) ──────────────────────────── */
+.name-stats {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.4vw, 1.1rem);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(0.4rem, 1.1vh, 0.65rem);
+}
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.12rem;
+}
+.stat-key {
+  font-size: 0.4rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.stat-val {
+  font-size: clamp(0.55rem, 0.88vw, 0.68rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 600;
+}
+.stat-sep {
+  color: var(--rule);
+  font-size: 0.75rem;
+  align-self: flex-end;
+  padding-bottom: 0.05rem;
+  flex-shrink: 0;
 }
 
 .name-line {
@@ -379,25 +437,31 @@ html, body {
 .d-5 { animation-delay: 0.56s; }
 .d-6 { animation-delay: 0.68s; }
 .d-7 { animation-delay: 0.78s; }
+.d-8 { animation-delay: 0.88s; }
 
-/* ─── MOBILE ─────────────────────────────────────────────────────────────── */
+/* ─── SHORT LANDSCAPE (phones / small tablets rotated) ───────────────────── */
+@media (max-height: 560px) {
+  html, body { overflow-y: auto; }
+  #grid  { height: auto; min-height: 100dvh; overflow: visible; }
+  #main  { overflow: visible; }
+}
+
+/* ─── MOBILE (≤ 640px) ───────────────────────────────────────────────────── */
 @media (max-width: 640px) {
-  /* layout */
-  #grid { padding: 1rem; }
-  .left-col { justify-content: center; }
+  #grid         { padding: 1rem; }
+  .left-col     { justify-content: center; }
+  #edge-label   { display: none; }
+  .name-stats   { gap: 0.55rem; }
+  .stat-val     { font-size: 0.6rem; }
 
-  /* name */
   .name-line    { font-size: clamp(2.1rem, 11.5vw, 4.2rem); }
   .name-tagline { font-size: 0.6rem; line-height: 1.5; margin-top: 0.55rem; }
 
-  /* portrait */
-  #portrait-bg  { opacity: 0.18; width: 62%; background-size: auto 75%; }
+  #portrait-bg  { opacity: 0.16; width: 62%; background-size: auto 75%; }
 
-  /* header */
   .header-right .role-line { display: none; }
   .header-right { gap: 0; }
 
-  /* footer — stack vertically for large tap targets */
   #footer {
     flex-direction: column;
     align-items: flex-start;
@@ -408,8 +472,23 @@ html, body {
   .link-btn     { font-size: 0.68rem; padding: 0.3rem 0; min-height: 2rem;
                   display: inline-flex; align-items: center; }
 
-  /* specialties */
   .specialties li { font-size: 0.6rem; }
+}
+
+/* ─── TABLET (641 – 1023px) ──────────────────────────────────────────────── */
+@media (min-width: 641px) and (max-width: 1023px) {
+  :root         { --pad: clamp(1.25rem, 2.5vw, 2rem); }
+  .name-line    { font-size: clamp(3rem, 10.5vw, 8rem); }
+  #portrait-bg  { width: 40%; opacity: 0.22; }
+  #edge-label   { display: none; }
+  .name-stats   { gap: 0.7rem; }
+}
+
+/* ─── LARGE DESKTOP (≥ 1600px) ──────────────────────────────────────────── */
+@media (min-width: 1600px) {
+  .name-line    { font-size: clamp(3rem, 13vw, 15rem); }
+  #portrait-bg  { width: 48%; }
+  #grid         { max-width: 2200px; margin-inline: auto; }
 }
 
 /* ─── REDUCED MOTION ─────────────────────────────────────────────────────── */
