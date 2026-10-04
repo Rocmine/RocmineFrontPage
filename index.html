@@ -2,145 +2,153 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ROCMINE — Rochdi Mohamed Amine</title>
-  <meta name="description" content="Infrastructure &amp; Server Engineer. ROCMINE — rocmine.net" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ROCMINE — Rochdi Mohamed Amine · AI, cloud &amp; infrastructure engineer</title>
+  <meta name="description" content="Rochdi Mohamed Amine (ROCMINE): State Engineer in computer science and networks. Generative-AI applications, cloud &amp; DevOps, and datacenter infrastructure. Based in Rabat, Morocco." />
+  <meta name="theme-color" content="#06060f" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://rocmine.net/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ROCMINE" />
+  <meta property="og:title" content="ROCMINE — Rochdi Mohamed Amine · AI, cloud &amp; infrastructure engineer" />
+  <meta property="og:description" content="Rochdi Mohamed Amine (ROCMINE): State Engineer in computer science and networks. Generative-AI applications, cloud &amp; DevOps, and datacenter infrastructure. Based in Rabat, Morocco." />
+  <meta property="og:url" content="https://rocmine.net/" />
+  <meta property="og:image" content="https://rocmine.net/assets/img/brand/share-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/img/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            display: ['Unbounded', 'sans-serif'],
-            mono:    ['JetBrains Mono', 'monospace'],
-          },
-        },
-      },
-    }
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <script>(function(d){d.classList.add('js');try{d.dataset.motion=localStorage.getItem('rocmine-motion')==='off'?'reduced':'full'}catch(e){d.dataset.motion='full'}})(document.documentElement)</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Rochdi Mohamed Amine",
+  "alternateName": [
+    "Mohamed Amine Rochdi",
+    "ROCMINE"
+  ],
+  "jobTitle": "AI, Cloud & Infrastructure Engineer",
+  "url": "https://rocmine.net/",
+  "email": "mailto:amine.rochdi@rocmine.net",
+  "image": "https://rocmine.net/assets/img/brand/share-card.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "MA",
+    "addressLocality": "Rabat"
+  },
+  "alumniOf": "École Marocaine des Sciences d'Ingénieur",
+  "knowsAbout": [
+    "Generative AI",
+    "Cloud computing",
+    "DevOps",
+    "Datacenter infrastructure",
+    "Virtualisation"
+  ],
+  "sameAs": [
+    "https://github.com/Rocmine",
+    "https://linkedin.com/in/rocmine"
+  ]
+}
   </script>
-
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="Background.jpg" type="image/jpeg" />
 </head>
-<body>
+<body class="page-home">
 
-<!-- grain: single background texture -->
+<a class="skip" href="#main">Skip to content</a>
 <div id="grain" aria-hidden="true"></div>
 
-<!-- full-bleed layout grid -->
 <div id="grid">
 
-  <!-- ─── HEADER ──────────────────────────────────────────────────────── -->
   <header id="header">
-
-    <div class="header-left reveal d-0">
-      <video class="avatar" id="logo-video" autoplay muted loop playsinline preload="auto" aria-hidden="true">
-        <source src="ChromeLogoRotatingFHD0001-0300.webm" type="video/webm" />
-        <source src="ChromeLogoRotatingFHD0001-0300.webm"    type="video/webm" />
+    <a class="header-left reveal d-0" href="/" aria-label="ROCMINE, home">
+      <video class="avatar" id="logo-video" autoplay muted loop playsinline preload="auto" poster="/assets/img/brand/logo-poster.png" aria-hidden="true">
+        <source src="/assets/video/logo-spin.webm" type="video/webm" />
+        <source src="/assets/video/logo-spin.mp4" type="video/mp4" />
       </video>
-      <span class="logotype">ROCMINE</span>
-    </div>
-
-    <div class="header-right reveal d-1">
-      <span class="role-line" aria-label="Role: infrastructure and server engineer">
-        <span class="role-prompt">~/</span><span class="role-text"> infrastructure &amp; server engineer</span><span class="cursor" aria-hidden="true"></span>
-      </span>
-      <span class="status-badge" aria-label="Status: available">
-        <span class="status-dot" aria-hidden="true"></span>Available
-      </span>
-    </div>
-
+      <span class="logotype" translate="no">ROCMINE</span>
+    </a>
+    <nav class="site-nav reveal d-1" aria-label="Primary"><a href="/work/">~/work</a><a href="/lab/">~/lab</a><a href="/about/">~/about</a></nav>
+    <span class="status-badge reveal d-1" aria-label="Status: available"><span class="status-dot" aria-hidden="true"></span>Available</span>
   </header>
 
-  <!-- ─── MAIN ────────────────────────────────────────────────────────── -->
-  <main id="main">
+  <main id="main" class="main-home">
 
-    <!-- Portrait: faded background, transparent left → visible right -->
     <div id="portrait-bg" aria-hidden="true"></div>
 
-    <!-- Left column: name block + specialties (flex, vertically centered) -->
+    <h1 class="sr-only">Rochdi Mohamed Amine, AI, cloud and infrastructure engineer</h1>
+
     <div class="left-col">
 
-      <div class="name-block" aria-label="Rochdi Mohamed Amine">
-        <span class="name-line reveal d-2">ROCHDI</span>
-        <span class="name-line reveal d-3">MOHAMED</span>
-        <span class="name-line reveal d-4">AMINE</span>
-        <p class="name-tagline reveal d-5">Building systems that scale.<br>Designing infrastructure that holds.</p>
+      <p class="role-line reveal d-1" aria-label="Role: AI, cloud and infrastructure engineer">
+        <span class="role-prompt">~/</span><span class="role-text"> ai · cloud · infrastructure engineer</span><span class="cursor" aria-hidden="true"></span>
+      </p>
+
+      <div class="name-block rail" translate="no">
+        <span class="name-line reveal d-2" aria-hidden="true">ROCHDI</span>
+        <span class="name-line reveal d-3" aria-hidden="true">MOHAMED</span>
+        <span class="name-line reveal d-4" aria-hidden="true">AMINE</span>
+        <p class="name-tagline reveal d-5">I build LLM applications, and the cloud and infrastructure that carries them to production.</p>
       </div>
 
-      <!-- Specialties — numbered inline list -->
       <ol class="specialties reveal d-6" aria-label="Areas of expertise">
-        <li><span class="spec-num">01</span>Systems</li>
-        <li><span class="spec-num">02</span>Cloud</li>
-        <li><span class="spec-num">03</span>Backend</li>
-        <li><span class="spec-num">04</span>DevOps</li>
+        <li><a href="/about/#skills-ai"><span class="spec-num">01</span>AI</a></li>
+        <li><a href="/about/#skills-cloud"><span class="spec-num">02</span>Cloud</a></li>
+        <li><a href="/about/#skills-datacenter"><span class="spec-num">03</span>Infrastructure</a></li>
+        <li><a href="/about/#skills-cloud"><span class="spec-num">04</span>DevOps</a></li>
       </ol>
 
-      <!-- GitHub-sourced profile stats -->
       <div class="name-stats reveal d-8">
-        <span class="stat"><span class="stat-key">Location</span><span class="stat-val">Morocco</span></span>
+        <span class="stat"><span class="stat-key">Based in</span><span class="stat-val">Rabat, Morocco</span></span>
         <span class="stat-sep" aria-hidden="true">·</span>
-        <span class="stat"><span class="stat-key">On GitHub</span><span class="stat-val">Since 2021</span></span>
+        <span class="stat"><span class="stat-key">Degree</span><span class="stat-val">State Engineer · EMSI 2026</span></span>
         <span class="stat-sep" aria-hidden="true">·</span>
-        <span class="stat"><span class="stat-key">Repos</span><span class="stat-val">13</span></span>
+        <span class="stat"><span class="stat-key">Peak traffic</span><span class="stat-val">10M+ visits</span></span>
         <span class="stat-sep" aria-hidden="true">·</span>
-        <span class="stat"><span class="stat-key">Bio</span><span class="stat-val">Love Servers &amp; Building Solutions</span></span>
+        <span class="stat"><span class="stat-key">Homelab</span><span class="stat-val">2 enterprise servers</span></span>
       </div>
 
     </div>
 
-    <!-- Decorative edge label (right side) -->
     <span id="edge-label" aria-hidden="true">ROCMINE.NET · PORTFOLIO · 2026</span>
 
-    <!-- Full-width ticker at bottom — infinite marquee -->
-    <p class="stack-ticker reveal d-7" aria-label="Tech stack: LINUX DOCKER NGINX K8S PYTHON NODE BASH GIT">
+    <p class="stack-ticker reveal d-7" aria-label="Tech stack: Linux, Proxmox, Vmware Esxi, Nutanix, Docker, Kubernetes, Terraform, Ansible, Nginx, Cloudflare, Gcp, Aws, Azure, Python, Fastapi, Ollama, Mcp, Rag">
       <span class="ticker-label">STACK</span>
       <span class="ticker-rule">──</span>
       <span class="ticker-body">
         <span class="ticker-run">
-          <span class="ticker-items">LINUX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; K8S &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; NODE &nbsp;·&nbsp; BASH &nbsp;·&nbsp; GIT</span>
-          <span class="ticker-items" aria-hidden="true">LINUX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; K8S &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; NODE &nbsp;·&nbsp; BASH &nbsp;·&nbsp; GIT</span>
+          <span class="ticker-items">LINUX &nbsp;·&nbsp; PROXMOX &nbsp;·&nbsp; VMWARE ESXI &nbsp;·&nbsp; NUTANIX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; KUBERNETES &nbsp;·&nbsp; TERRAFORM &nbsp;·&nbsp; ANSIBLE &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; CLOUDFLARE &nbsp;·&nbsp; GCP &nbsp;·&nbsp; AWS &nbsp;·&nbsp; AZURE &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; FASTAPI &nbsp;·&nbsp; OLLAMA &nbsp;·&nbsp; MCP &nbsp;·&nbsp; RAG</span>
+          <span class="ticker-items" aria-hidden="true">LINUX &nbsp;·&nbsp; PROXMOX &nbsp;·&nbsp; VMWARE ESXI &nbsp;·&nbsp; NUTANIX &nbsp;·&nbsp; DOCKER &nbsp;·&nbsp; KUBERNETES &nbsp;·&nbsp; TERRAFORM &nbsp;·&nbsp; ANSIBLE &nbsp;·&nbsp; NGINX &nbsp;·&nbsp; CLOUDFLARE &nbsp;·&nbsp; GCP &nbsp;·&nbsp; AWS &nbsp;·&nbsp; AZURE &nbsp;·&nbsp; PYTHON &nbsp;·&nbsp; FASTAPI &nbsp;·&nbsp; OLLAMA &nbsp;·&nbsp; MCP &nbsp;·&nbsp; RAG</span>
         </span>
       </span>
     </p>
 
   </main>
 
-  <!-- ─── FOOTER ───────────────────────────────────────────────────────── -->
   <footer id="footer">
-
     <nav class="footer-links reveal d-7" aria-label="Contact and social links">
-      <!-- email: click copies to clipboard, also opens mailto as fallback -->
-      <button
-        class="link-btn"
-        id="btn-email"
-        data-email="amine.rochdi@rocmine.net"
-        aria-label="Copy email address"
-      >email</button>
+      <button class="link-btn" id="btn-email" data-email="amine.rochdi@rocmine.net" aria-label="Copy email address">email</button>
       <span class="link-sep" aria-hidden="true">·</span>
-      <!-- replace href with your real GitHub profile -->
-      <a class="link-btn" href="https://github.com/ROCMINE" id="btn-github" target="_blank" rel="noopener noreferrer">github</a>
+      <a class="link-btn" href="https://github.com/Rocmine" id="btn-github" target="_blank" rel="noopener noreferrer">github</a>
       <span class="link-sep" aria-hidden="true">·</span>
-      <!-- replace href with your real LinkedIn profile -->
       <a class="link-btn" href="https://linkedin.com/in/rocmine" id="btn-linkedin" target="_blank" rel="noopener noreferrer">linkedin</a>
     </nav>
-
     <div class="footer-right reveal d-7">
-      <a href="https://rocmine.net" target="_blank" rel="noopener noreferrer" class="site-link">rocmine.net</a>
-      <span class="footer-copy">© <span id="year"></span></span>
+      <button class="link-btn" id="btn-motion" type="button">motion: on</button>
+      <a href="/" class="site-link">rocmine.net</a>
+      <span class="footer-copy">© <span id="year">2026</span></span>
     </div>
-
   </footer>
 
 </div>
 
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<script src="script.js"></script>
+<script src="/assets/js/main.js"></script>
 </body>
 </html>

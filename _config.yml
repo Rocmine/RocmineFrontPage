@@ -1,0 +1,5 @@
+# GitHub Pages: do not publish originals, tooling or docs.
+exclude:
+  - source
+  - tools
+  - README.md

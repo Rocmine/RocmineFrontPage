@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>RocmineLabs — ROCMINE</title>
+  <meta name="description" content="RocmineLabs: a home datacenter with Dell PowerEdge R630 and Precision T5820 servers running Proxmox VE, Nginx, Cloudflare, local LLMs with Ollama and MCP agents." />
+  <meta name="theme-color" content="#06060f" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://rocmine.net/lab/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ROCMINE" />
+  <meta property="og:title" content="RocmineLabs — ROCMINE" />
+  <meta property="og:description" content="RocmineLabs: a home datacenter with Dell PowerEdge R630 and Precision T5820 servers running Proxmox VE, Nginx, Cloudflare, local LLMs with Ollama and MCP agents." />
+  <meta property="og:url" content="https://rocmine.net/lab/" />
+  <meta property="og:image" content="https://rocmine.net/assets/img/brand/share-card.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="/assets/img/brand/favicon-32.png" type="image/png" sizes="32x32" />
+  <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/main.css" />
+  <script>(function(d){d.classList.add('js');try{d.dataset.motion=localStorage.getItem('rocmine-motion')==='off'?'reduced':'full'}catch(e){d.dataset.motion='full'}})(document.documentElement)</script>
+</head>
+<body class="">
+
+<a class="skip" href="#main">Skip to content</a>
+<div id="grain" aria-hidden="true"></div>
+
+<div id="grid">
+
+  <header id="header">
+    <a class="header-left" href="/" aria-label="ROCMINE, home">
+      <video class="avatar" id="logo-video" autoplay muted loop playsinline preload="auto" poster="/assets/img/brand/logo-poster.png" aria-hidden="true">
+        <source src="/assets/video/logo-spin.webm" type="video/webm" />
+        <source src="/assets/video/logo-spin.mp4" type="video/mp4" />
+      </video>
+      <span class="logotype" translate="no">ROCMINE</span>
+    </a>
+    <nav class="site-nav" aria-label="Primary"><a href="/work/">~/work</a><a href="/lab/" aria-current="page">~/lab</a><a href="/about/">~/about</a></nav>
+    <span class="status-badge" aria-label="Status: available"><span class="status-dot" aria-hidden="true"></span>Available</span>
+  </header>
+
+  <main id="main" class="page">
+
+    <div class="page-head rail">
+      <p class="crumb reveal d-1"><span class="role-prompt">~/</span>lab</p>
+      <h1 class="page-title reveal d-2">RocmineLabs</h1>
+      <p class="page-lede reveal d-3">My home datacenter: two enterprise-class servers running multi-node virtualisation, close enough to production to practise on real operations.</p>
+    </div>
+
+    <section class="sec sec-wide">
+      <h2 class="sec-label">Hardware</h2>
+      <div class="sec-body">
+        <div class="hw-grid">
+          <figure class="hw-item">
+            <div class="diagram-wrap">
+            <svg class="diagram hw" viewBox="0 0 640 96" role="img" aria-labelledby="hr-t hr-d" xmlns="http://www.w3.org/2000/svg"><title id="hr-t">Dell PowerEdge R630, front view (illustration)</title><desc id="hr-d">A 1U rack server with a row of drive bays, a power button and ventilation slots.</desc><rect class="node core draw" x="4" y="14" width="632" height="68" pathLength="1" style="--d:0.0s"/><path class="node draw" d="M36 14 L36 82" fill="none" pathLength="1" style="--d:0.2s"/><path class="node draw" d="M604 14 L604 82" fill="none" pathLength="1" style="--d:0.2s"/><rect class="node  draw" x="56" y="26" width="48" height="44" pathLength="1" style="--d:0.2s"/><rect class="node  draw" x="112" y="26" width="48" height="44" pathLength="1" style="--d:0.25s"/><rect class="node  draw" x="168" y="26" width="48" height="44" pathLength="1" style="--d:0.30000000000000004s"/><rect class="node  draw" x="224" y="26" width="48" height="44" pathLength="1" style="--d:0.35000000000000003s"/><rect class="node  draw" x="280" y="26" width="48" height="44" pathLength="1" style="--d:0.4s"/><rect class="node  draw" x="336" y="26" width="48" height="44" pathLength="1" style="--d:0.45s"/><rect class="node  draw" x="392" y="26" width="48" height="44" pathLength="1" style="--d:0.5s"/><rect class="node  draw" x="448" y="26" width="48" height="44" pathLength="1" style="--d:0.55s"/><circle class="node hot draw" cx="620" cy="30" r="5" pathLength="1" style="--d:0.9s"/><path class="node draw" d="M612 48 L628 48" fill="none" pathLength="1" style="--d:0.9s"/><path class="node draw" d="M612 55 L628 55" fill="none" pathLength="1" style="--d:0.9s"/><path class="node draw" d="M612 62 L628 62" fill="none" pathLength="1" style="--d:0.9s"/></svg>
+            </div>
+            <figcaption><b>Dell PowerEdge R630</b> · 1U rack server</figcaption>
+          </figure>
+          <figure class="hw-item">
+            <div class="hw-tower">
+            <svg class="diagram hw" viewBox="0 0 220 330" role="img" aria-labelledby="ht-t ht-d" xmlns="http://www.w3.org/2000/svg"><title id="ht-t">Dell Precision T5820, front view (illustration)</title><desc id="ht-d">A tower workstation with a front vent grille, an optical bay, a power button and ports.</desc><rect class="node core draw" x="6" y="6" width="208" height="318" pathLength="1" style="--d:0.0s"/><rect class="node  draw" x="26" y="26" width="168" height="24" pathLength="1" style="--d:0.2s"/><circle class="node hot draw" cx="110" cy="86" r="9" pathLength="1" style="--d:0.5s"/><path class="node draw" d="M30 124 L190 124" fill="none" pathLength="1" style="--d:0.4s"/><path class="node draw" d="M30 135 L190 135" fill="none" pathLength="1" style="--d:0.44s"/><path class="node draw" d="M30 146 L190 146" fill="none" pathLength="1" style="--d:0.48000000000000004s"/><path class="node draw" d="M30 157 L190 157" fill="none" pathLength="1" style="--d:0.52s"/><path class="node draw" d="M30 168 L190 168" fill="none" pathLength="1" style="--d:0.56s"/><path class="node draw" d="M30 179 L190 179" fill="none" pathLength="1" style="--d:0.6000000000000001s"/><path class="node draw" d="M30 190 L190 190" fill="none" pathLength="1" style="--d:0.64s"/><path class="node draw" d="M30 201 L190 201" fill="none" pathLength="1" style="--d:0.68s"/><path class="node draw" d="M30 212 L190 212" fill="none" pathLength="1" style="--d:0.72s"/><path class="node draw" d="M30 223 L190 223" fill="none" pathLength="1" style="--d:0.76s"/><path class="node draw" d="M30 234 L190 234" fill="none" pathLength="1" style="--d:0.8s"/><path class="node draw" d="M30 245 L190 245" fill="none" pathLength="1" style="--d:0.8400000000000001s"/><path class="node draw" d="M30 256 L190 256" fill="none" pathLength="1" style="--d:0.88s"/><path class="node draw" d="M30 267 L190 267" fill="none" pathLength="1" style="--d:0.92s"/><rect class="node  draw" x="26" y="290" width="60" height="16" pathLength="1" style="--d:0.9s"/><rect class="node  draw" x="96" y="290" width="24" height="16" pathLength="1" style="--d:0.95s"/><rect class="node  draw" x="130" y="290" width="24" height="16" pathLength="1" style="--d:1.0s"/></svg>
+            </div>
+            <figcaption><b>Dell Precision T5820</b> · tower</figcaption>
+          </figure>
+        </div>
+        <p class="diagram-note">Front panels are illustrations, not photos.</p>
+      </div>
+    </section>
+
+    <section class="sec sec-wide">
+      <h2 class="sec-label">Topology</h2>
+      <div class="sec-body">
+        <div class="diagram-wrap">
+        <svg class="diagram" viewBox="0 0 960 340" role="img" aria-labelledby="dl-t dl-d" xmlns="http://www.w3.org/2000/svg"><title id="dl-t">RocmineLabs topology</title><desc id="dl-d">Internet traffic passes through Cloudflare to an Nginx reverse proxy and load balancer, then to a multi-node Proxmox VE environment running web services, monitoring, game servers, local LLMs with MCP agents, and the Morocco Earthquake Tracker.</desc><rect class="encl draw" x="560" y="16" width="400" height="308" pathLength="1" style="--d:0.2s"/><text class="fade cap" x="576" y="38" text-anchor="start" style="--d:0.9s">Proxmox VE · multi-node</text><rect class="node  draw" x="0" y="130" width="110" height="76" pathLength="1" style="--d:0.0s"/><text class="fade" x="55.0" y="172.0" text-anchor="middle" style="--d:0.5s">Internet</text><rect class="node core draw" x="160" y="130" width="130" height="76" pathLength="1" style="--d:0.3s"/><text class="fade" x="225.0" y="165.0" text-anchor="middle" style="--d:0.8s">Cloudflare</text><text class="fade sub" x="225.0" y="182.0" text-anchor="middle" style="--d:0.8999999999999999s">protection</text><rect class="node core draw" x="340" y="130" width="160" height="76" pathLength="1" style="--d:0.6s"/><text class="fade" x="420.0" y="165.0" text-anchor="middle" style="--d:1.1s">Nginx</text><text class="fade sub" x="420.0" y="182.0" text-anchor="middle" style="--d:1.2s">reverse proxy · LB</text><rect class="node  draw" x="580" y="56" width="170" height="64" pathLength="1" style="--d:0.9s"/><text class="fade" x="665.0" y="92.0" text-anchor="middle" style="--d:1.4s">Web services</text><rect class="node  draw" x="580" y="140" width="170" height="64" pathLength="1" style="--d:1.0s"/><text class="fade" x="665.0" y="176.0" text-anchor="middle" style="--d:1.5s">Monitoring</text><rect class="node hot draw" x="580" y="224" width="170" height="64" pathLength="1" style="--d:1.1s"/><text class="fade" x="665.0" y="253.0" text-anchor="middle" style="--d:1.6s">Earthquake Tracker</text><text class="fade sub" x="665.0" y="270.0" text-anchor="middle" style="--d:1.7000000000000002s">10M+ visits</text><rect class="node  draw" x="770" y="56" width="170" height="64" pathLength="1" style="--d:1.2s"/><text class="fade" x="855.0" y="85.0" text-anchor="middle" style="--d:1.7s">Game servers</text><text class="fade sub" x="855.0" y="102.0" text-anchor="middle" style="--d:1.7999999999999998s">Minecraft · CS2 · FiveM</text><rect class="node hot draw" x="770" y="140" width="170" height="64" pathLength="1" style="--d:1.3s"/><text class="fade" x="855.0" y="169.0" text-anchor="middle" style="--d:1.8s">Local LLMs + agents</text><text class="fade sub" x="855.0" y="186.0" text-anchor="middle" style="--d:1.9s">Ollama · MCP</text><path class="wire  draw" d="M110 168 H160" pathLength="1" style="--d:0.2s"/><path class="wire  draw" d="M290 168 H340" pathLength="1" style="--d:0.5s"/><path class="wire  draw" d="M500 168 H560" pathLength="1" style="--d:0.8s"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <h2 class="sec-label">What runs here</h2>
+      <div class="sec-body">
+        <ul class="points">
+          <li>Multi-node virtualisation with <b>Proxmox VE</b>: web services, monitoring tools and game servers (Minecraft, CS2, FiveM).</li>
+          <li><b>Local LLMs</b> with Ollama, and experiments with AI agents connected to tools through <b>MCP</b>.</li>
+          <li>An <b>Nginx</b> reverse proxy with load balancing, behind <b>Cloudflare</b> protection.</li>
+          <li>Full <b>Linux</b> administration: network configuration, access management, backups, and hardening of exposed services.</li>
+          <li>It hosted the <a href="/work/earthquake-tracker/">Morocco Earthquake Tracker</a> through more than 10 million visits, without interruption.</li>
+        </ul>
+      </div>
+    </section>
+
+    <a class="next-link" href="/about/">
+      <span class="nl-key">Next</span>
+      <span class="nl-val">About me</span>
+    </a>
+
+  </main>
+
+  <footer id="footer">
+    <nav class="footer-links" aria-label="Contact and social links">
+      <button class="link-btn" id="btn-email" data-email="amine.rochdi@rocmine.net" aria-label="Copy email address">email</button>
+      <span class="link-sep" aria-hidden="true">·</span>
+      <a class="link-btn" href="https://github.com/Rocmine" id="btn-github" target="_blank" rel="noopener noreferrer">github</a>
+      <span class="link-sep" aria-hidden="true">·</span>
+      <a class="link-btn" href="https://linkedin.com/in/rocmine" id="btn-linkedin" target="_blank" rel="noopener noreferrer">linkedin</a>
+    </nav>
+    <div class="footer-right">
+      <button class="link-btn" id="btn-motion" type="button">motion: on</button>
+      <a href="/" class="site-link">rocmine.net</a>
+      <span class="footer-copy">© <span id="year">2026</span></span>
+    </div>
+  </footer>
+
+</div>
+
+<div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
