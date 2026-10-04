@@ -3,14 +3,14 @@
 Usage (from the repo root):
     python tools/make_assets.py
 
-Needs Pillow + numpy, and ffmpeg (set FFMPEG=path\to\ffmpeg.exe if it is not on PATH).
+Needs Pillow and ffmpeg (set FFMPEG=path\to\ffmpeg.exe if it is not on PATH).
 """
 import os
+import shutil
 import subprocess
 import sys
 from pathlib import Path
 
-import numpy as np
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -56,28 +56,10 @@ def icons():
     card.crop((0, top, 1200, top + 630)).save(brand / "share-card.jpg", quality=84, optimize=True)
 
 
-# portrait tuning (the original is very dark: mean ~19/255)
-GAMMA = 0.62       # <1 lifts shadows
-KEEP_BG = 0.04     # how much of the lift survives outside the subject (0 = untouched dark background)
-CENTER = (0.50, 0.60)
-RADII = (0.40, 0.46)
-BLACK = 0.16       # black point applied after the lift, keeps the backdrop dark
-
-
 def portrait():
+    """The portrait is used exactly as shot: a plain copy, no grading or masks."""
     (OUT / "img" / "portrait").mkdir(parents=True, exist_ok=True)
-    im = Image.open(SRC / "portrait-original-400.png").convert("RGB").resize((800, 800), Image.LANCZOS)
-    a = np.asarray(im).astype("float32") / 255
-    hi = np.percentile(a.mean(axis=2), 99.7)
-    lifted = np.clip((np.clip(a / hi, 0, 1) ** GAMMA - BLACK) / (1 - BLACK), 0, 1)
-    y, x = np.mgrid[0:800, 0:800] / 800
-    d = np.sqrt(((x - CENTER[0]) / RADII[0]) ** 2 + ((y - CENTER[1]) / RADII[1]) ** 2)
-    subject = np.clip(1.15 - d, 0, 1) ** 0.8                      # 1 on the subject, falling to 0 outside
-    mix = KEEP_BG + (1 - KEEP_BG) * subject
-    base = a * 1.0                                                 # original (dark) background
-    out = base + (lifted - base) * mix[..., None]
-    Image.fromarray((np.clip(out, 0, 1) * 255).astype("uint8")).save(
-        OUT / "img" / "portrait" / "portrait-lit.webp", quality=88, method=6)
+    shutil.copyfile(SRC / "portrait-original-400.png", OUT / "img" / "portrait" / "portrait.png")
 
 
 if __name__ == "__main__":

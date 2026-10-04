@@ -282,24 +282,12 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
   top: 0; right: 0; bottom: 0;
   width: 44%;
   z-index: 0;
-  background-image: url('/assets/img/portrait/portrait-lit.webp');
+  background-image: url('/assets/img/portrait/portrait.png');
   background-size: auto 100%;
   background-position: right center;
   background-repeat: no-repeat;
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 38%, #000 93%, transparent 100%),
-                      linear-gradient(to bottom, transparent 0%, #000 9%, #000 72%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 38%, #000 93%, transparent 100%),
-              linear-gradient(to bottom, transparent 0%, #000 9%, #000 72%, transparent 100%);
-  mask-composite: intersect;
-  opacity: 0.95;
   pointer-events: none;
   user-select: none;
-  animation: portrait-in 1.8s ease-out 0.6s both;
-}
-@keyframes portrait-in {
-  from { opacity: 0; transform: translateX(18px); }
-  to   { opacity: 0.95; transform: translateX(0); }
 }
 
 #edge-label {
@@ -684,9 +672,6 @@ a.work-link:focus-visible .w-thumb { grid-template-rows: 1fr; }
   #portrait-bg {
     left: 0; right: 0; bottom: auto; margin-inline: auto; width: min(100%, 36vh); height: 30vh;
     background-size: auto 100%; background-position: center top;
-    -webkit-mask-image: radial-gradient(ellipse 48% 72% at 50% 46%, #000 50%, transparent 100%);
-    mask-image: radial-gradient(ellipse 48% 72% at 50% 46%, #000 50%, transparent 100%);
-    -webkit-mask-composite: source-over; mask-composite: add;
   }
   .left-col { padding-top: 28vh; }
   #edge-label { display: none; }
@@ -699,7 +684,6 @@ html[data-motion="reduced"] { scroll-behavior: auto; }
 html[data-motion="reduced"] .reveal { opacity: 1; transform: none; animation: none; }
 html[data-motion="reduced"] .cursor,
 html[data-motion="reduced"] .status-dot { animation: none; }
-html[data-motion="reduced"] #portrait-bg { animation: none; opacity: 0.95; transform: none; }
 html[data-motion="reduced"] .rail::before { animation: none; transform: scaleY(1); }
 html[data-motion="reduced"] .ticker-run { animation: none; }
 html[data-motion="reduced"] #grain { display: none; }
