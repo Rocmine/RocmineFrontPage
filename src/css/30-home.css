@@ -121,10 +121,11 @@ body.page-home #grid { min-height: 100vh; min-height: 100dvh; }
 .ticker-label { color: var(--accent); letter-spacing: 0.22em; flex-shrink: 0; }
 .ticker-rule  { color: var(--rule); flex-shrink: 0; letter-spacing: 0; }
 .ticker-body  { flex: 1 1 0; min-width: 0; overflow: hidden; }
-.ticker-run   { display: inline-flex; animation: ticker-scroll 46s linear infinite; }
+/* --n identical copies sit side by side; moving by exactly one copy (-100% / n) loops with no seam */
+.ticker-run   { display: inline-flex; animation: ticker-scroll 40s linear infinite; }
 .ticker-body:hover .ticker-run { animation-play-state: paused; }
-.ticker-items { white-space: nowrap; padding-right: 4em; }
-@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.ticker-items { white-space: nowrap; }
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(calc(-100% / var(--n, 6))); } }
 
 @supports not (width: 1cqi) {
   .name-line { font-size: clamp(2.4rem, min(7.6vw, 15svh), 10rem); }

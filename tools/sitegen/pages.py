@@ -21,7 +21,12 @@ def letters(word, start):
 
 def home():
     sep = " &nbsp;·&nbsp; "
-    ticker = sep.join(TICKER)
+    # one copy = every item plus a trailing separator, so the rhythm is identical at the loop point
+    copy = sep.join(TICKER) + sep
+    TICKER_COPIES = 6
+    ticker_copies = "".join(
+        f'          <span class="ticker-items"' + ("" if i == 0 else ' aria-hidden="true"') + f'>{copy}</span>{chr(10)}'
+        for i in range(TICKER_COPIES)).rstrip()
     specialties = "\n".join(
         f'        <li><a href="{x["href"]}"><span class="spec-num">{x["num"]}</span>{esc(x["label"])}</a></li>'
         for x in SITE_DATA["specialties"])
@@ -85,9 +90,8 @@ def home():
       <span class="ticker-label">STACK</span>
       <span class="ticker-rule">──</span>
       <span class="ticker-body">
-        <span class="ticker-run">
-          <span class="ticker-items">{ticker}</span>
-          <span class="ticker-items" aria-hidden="true">{ticker}</span>
+        <span class="ticker-run" style="--n:{TICKER_COPIES}">
+{ticker_copies}
         </span>
       </span>
     </p>

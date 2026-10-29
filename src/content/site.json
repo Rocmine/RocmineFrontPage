@@ -5,23 +5,21 @@
   "tagline": "I build LLM applications, and the cloud and infrastructure that carries them to production.",
   "ticker": [
     "LINUX",
+    "DOCKER",
+    "BASH",
+    "NGINX",
     "PROXMOX",
+    "CLOUDFLARE",
+    "CUDA",
+    "NVIDIA",
+    "OLLAMA",
     "VMWARE ESXI",
     "NUTANIX",
-    "DOCKER",
     "KUBERNETES",
     "TERRAFORM",
     "ANSIBLE",
-    "NGINX",
-    "CLOUDFLARE",
-    "GCP",
-    "AWS",
-    "AZURE",
     "PYTHON",
-    "FASTAPI",
-    "OLLAMA",
-    "MCP",
-    "RAG"
+    "GIT"
   ],
   "specialties": [
     {
