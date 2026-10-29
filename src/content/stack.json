@@ -40,6 +40,29 @@
       }
     },
     {
+      "name": "Linux & containers",
+      "items": [
+        "Debian",
+        "Ubuntu",
+        "Arch",
+        "Alpine",
+        "Docker",
+        "Portainer",
+        "Kubernetes",
+        "Bash"
+      ]
+    },
+    {
+      "name": "GPUs & local LLMs",
+      "items": [
+        "CUDA",
+        "NVIDIA GPUs",
+        "Ollama",
+        "LLMs on GPUs in Docker",
+        "MCP"
+      ]
+    },
+    {
       "name": "Languages",
       "items": [
         "Python",
@@ -50,7 +73,6 @@
         "Java",
         ".NET",
         "PowerShell",
-        "Bash",
         "SQL"
       ]
     },
@@ -83,8 +105,6 @@
     {
       "name": "Cloud & DevOps",
       "items": [
-        "Docker",
-        "Kubernetes",
         "AWS",
         "GCP",
         "Azure",
@@ -95,25 +115,12 @@
       ]
     },
     {
-      "name": "AI",
+      "name": "DIY & modding",
       "items": [
-        "OpenAI, Claude and Mistral APIs",
-        "RAG",
-        "LangChain",
-        "LlamaIndex",
-        "Chroma",
-        "Ollama",
-        "MCP",
-        "Claude Code"
-      ]
-    },
-    {
-      "name": "Linux",
-      "items": [
-        "Debian",
-        "Ubuntu",
-        "Arch",
-        "Alpine"
+        "Router firmware modding",
+        "Replacing a phone's OS",
+        "Windows tweaking & custom installs",
+        "Hardware DIY & PC building"
       ]
     },
     {

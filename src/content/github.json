@@ -28,41 +28,21 @@
       "repos": 1
     }
   ],
-  "recent": [
-    {
-      "name": "RocmineFrontPage",
-      "url": "https://github.com/Rocmine/RocmineFrontPage",
-      "language": "HTML",
-      "description": "RocmineOfficialFrontPage",
-      "pushed": "2026-10"
-    },
-    {
-      "name": "RocmineFreshInstallPrograms",
-      "url": "https://github.com/Rocmine/RocmineFreshInstallPrograms",
-      "language": "PowerShell",
-      "description": "All Rocmine's Programs to install on a fresh windows install on his pc",
-      "pushed": "2025-07"
-    },
-    {
-      "name": "DiscordVencordThemeRCMParameter",
-      "url": "https://github.com/Rocmine/DiscordVencordThemeRCMParameter",
-      "language": "CSS",
-      "description": "My own parameter for basic minimal good looking discord using Vencord",
-      "pushed": "2024-12"
-    },
-    {
-      "name": "yalahbadi",
-      "url": "https://github.com/Rocmine/yalahbadi",
-      "language": "JavaScript",
-      "description": "a plateform to show new moroccan streamers that have low viewers counts",
-      "pushed": "2024-08"
-    },
-    {
-      "name": "coursera-github-assignement-unix",
-      "url": "https://github.com/Rocmine/coursera-github-assignement-unix",
-      "language": "Makefile",
-      "description": null,
-      "pushed": "2024-04"
-    }
+  "names": [
+    "Basic-roadmap",
+    "DiscordVencordThemeRCMParameter",
+    "Rocmine",
+    "RocmineFreshInstallPrograms",
+    "RocmineFrontPage",
+    "Rocmine_omp_theme",
+    "ZinebKasAudioFile",
+    "arab-font-for-chediid",
+    "blacklist_words_fossabot",
+    "coursera-github-assignement-unix",
+    "eq-mic-equalizerapo",
+    "guessingname-coursera-assignement1",
+    "project-tarmiz1",
+    "winlator",
+    "yalahbadi"
   ]
 }

@@ -1,18 +1,39 @@
 {
   "groups": [
     {
-      "id": "skills-ai",
-      "name": "Generative AI & agents",
+      "id": "skills-systems",
+      "name": "Linux & servers",
       "items": [
-        "LLM APIs: OpenAI, Claude, Mistral",
-        "Prompt engineering",
-        "RAG",
-        "LangChain",
-        "LlamaIndex",
-        "Vector databases (Chroma)",
-        "Local LLMs (Ollama)",
-        "AI agents & MCP",
-        "AI coding assistants"
+        "Linux (Debian, Ubuntu, Arch, Alpine)",
+        "Bash scripting",
+        "Server hardening",
+        "Nginx (reverse proxy, load balancing)",
+        "Cloudflare",
+        "IP addressing",
+        "VLAN",
+        "Windows Server",
+        "Monitoring",
+        "High availability",
+        "Ethical-hacking basics"
+      ],
+      "used_in": [
+        {
+          "label": "Earthquake Tracker",
+          "href": "/work/earthquake-tracker/"
+        },
+        {
+          "label": "RocmineLabs",
+          "href": "/lab/"
+        }
+      ]
+    },
+    {
+      "id": "skills-containers",
+      "name": "Docker & containers",
+      "items": [
+        "Docker",
+        "Portainer",
+        "Kubernetes"
       ],
       "used_in": [
         {
@@ -22,20 +43,21 @@
       ]
     },
     {
-      "id": "skills-cloud",
-      "name": "Cloud & DevOps",
+      "id": "skills-gpu",
+      "name": "GPUs & local LLMs",
       "items": [
-        "GCP",
-        "AWS",
-        "Azure",
-        "Docker",
-        "Kubernetes",
-        "Terraform",
-        "Ansible",
-        "GitHub Actions",
-        "GitLab CI",
-        "Git / GitHub",
-        "Automation scripting"
+        "CUDA",
+        "NVIDIA GPUs",
+        "Local LLMs (Ollama)",
+        "LLMs on GPUs in Docker",
+        "LLM APIs: OpenAI, Claude, Mistral",
+        "RAG & MCP agents"
+      ],
+      "used_in": [
+        {
+          "label": "RocmineLabs",
+          "href": "/lab/"
+        }
       ]
     },
     {
@@ -78,29 +100,28 @@
       ]
     },
     {
-      "id": "skills-systems",
-      "name": "Systems, networks & security",
+      "id": "skills-cloud",
+      "name": "Cloud & DevOps",
       "items": [
-        "Linux (Debian / Ubuntu)",
-        "Windows Server",
-        "IP addressing",
-        "VLAN",
-        "Nginx (reverse proxy, load balancing)",
-        "Cloudflare",
-        "Server hardening",
-        "Ethical-hacking basics",
-        "Monitoring",
-        "High availability"
-      ],
-      "used_in": [
-        {
-          "label": "Earthquake Tracker",
-          "href": "/work/earthquake-tracker/"
-        },
-        {
-          "label": "RocmineLabs",
-          "href": "/lab/"
-        }
+        "GCP",
+        "AWS",
+        "Azure",
+        "Terraform",
+        "Ansible",
+        "GitHub Actions",
+        "GitLab CI",
+        "Git / GitHub",
+        "Automation scripting"
+      ]
+    },
+    {
+      "id": "skills-diy",
+      "name": "DIY, modding & hacking",
+      "items": [
+        "Router firmware modding (installing Linux)",
+        "Replacing a phone's OS",
+        "Windows tweaking & custom installs",
+        "Hardware DIY & PC building"
       ]
     },
     {

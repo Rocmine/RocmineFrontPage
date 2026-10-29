@@ -167,6 +167,20 @@ def main():
                 if tid is None or frag not in tid:
                     err(rel, f"broken anchor: {href}")
 
+    # repo names must not appear on the skills pages (/stack/ and /about/)
+    gh_file = ROOT / "src" / "content" / "github.json"
+    if gh_file.exists():
+        gh = json.loads(gh_file.read_text(encoding="utf8"))
+        names = [n for n in gh.get("names", []) if n.lower() != gh.get("login", "").lower()]
+        for rel in ("stack/index.html", "about/index.html"):
+            f = ROOT / rel
+            if not f.exists():
+                continue
+            text = re.sub(r"<[^>]+>", " ", f.read_text(encoding="utf8"))
+            for n in names:
+                if re.search(r"(?<![\w-])" + re.escape(n) + r"(?![\w-])", text):
+                    err(rel, f"shows repo name '{n}' (repo names must not appear on skills pages)")
+
     # urls in the sitemap must exist
     for loc in in_sitemap:
         if not target_file(loc[len(SITE):]).exists():

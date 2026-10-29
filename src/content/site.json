@@ -1,8 +1,8 @@
 {
   "name": "Rochdi Mohamed Amine",
   "email": "amine.rochdi@rocmine.net",
-  "role": "ai · cloud · infrastructure engineer",
-  "tagline": "I build LLM applications, and the cloud and infrastructure that carries them to production.",
+  "role": "linux · docker · infrastructure engineer",
+  "tagline": "Linux servers, Docker and infrastructure. I run everything from a home datacenter, including local LLMs on GPUs.",
   "ticker": [
     "LINUX",
     "DOCKER",
@@ -24,13 +24,13 @@
   "specialties": [
     {
       "num": "01",
-      "label": "AI",
-      "href": "/about/#skills-ai"
+      "label": "Linux",
+      "href": "/about/#skills-systems"
     },
     {
       "num": "02",
-      "label": "Cloud",
-      "href": "/about/#skills-cloud"
+      "label": "Docker",
+      "href": "/about/#skills-containers"
     },
     {
       "num": "03",
@@ -39,8 +39,8 @@
     },
     {
       "num": "04",
-      "label": "DevOps",
-      "href": "/about/#skills-cloud"
+      "label": "GPUs & LLMs",
+      "href": "/about/#skills-gpu"
     }
   ],
   "stats": [

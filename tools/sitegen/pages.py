@@ -38,13 +38,13 @@ def home():
         "@id": PERSON_ID,
         "name": "Rochdi Mohamed Amine",
         "alternateName": ["Mohamed Amine Rochdi", "ROCMINE"],
-        "jobTitle": "AI, Cloud & Infrastructure Engineer",
+        "jobTitle": "Linux & Infrastructure Engineer",
         "url": SITE + "/",
         "email": "mailto:" + EMAIL,
         "image": SITE + "/assets/img/cards/home.jpg",
         "address": {"@type": "PostalAddress", "addressCountry": "MA", "addressLocality": "Rabat"},
         "alumniOf": "École Marocaine des Sciences d'Ingénieur",
-        "knowsAbout": ["Generative AI", "Cloud computing", "DevOps", "Datacenter infrastructure", "Virtualisation"],
+        "knowsAbout": ["Linux", "Docker", "Linux servers", "Datacenter infrastructure", "Virtualisation", "NVIDIA CUDA", "Local LLMs"],
         "sameAs": ["https://github.com/Rocmine", "https://linkedin.com/in/rocmine"],
     }
     website = {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "ROCMINE",
@@ -54,11 +54,11 @@ def home():
 
     <div id="portrait-bg" aria-hidden="true"></div>
 
-    <h1 class="sr-only">Rochdi Mohamed Amine, AI, cloud and infrastructure engineer</h1>
+    <h1 class="sr-only">Rochdi Mohamed Amine, Linux, Docker and infrastructure engineer</h1>
 
     <div class="left-col">
 
-      <p class="role-line reveal d-1" aria-label="Role: AI, cloud and infrastructure engineer">
+      <p class="role-line reveal d-1" aria-label="Role: Linux, Docker and infrastructure engineer">
         <span class="role-prompt">~/</span><span class="role-text"> {SITE_DATA["role"]}</span><span class="cursor" aria-hidden="true"></span>
       </p>
 
@@ -98,8 +98,8 @@ def home():
 
   </main>'''
     extra = ld_script(graph)
-    return page("/", "ROCMINE — Rochdi Mohamed Amine · AI, cloud & infrastructure engineer",
-                "Rochdi Mohamed Amine (ROCMINE): State Engineer in computer science and networks. Generative-AI applications, cloud & DevOps, and datacenter infrastructure. Based in Rabat, Morocco.",
+    return page("/", "ROCMINE — Rochdi Mohamed Amine · Linux, Docker & infrastructure engineer",
+                "Rochdi Mohamed Amine (ROCMINE): State Engineer in computer science and networks. Linux servers, Docker, datacenter infrastructure and local LLMs on GPUs. Based in Rabat, Morocco.",
                 body, home=True, extra_head=extra, body_class="page-home")
 
 
@@ -132,7 +132,7 @@ def work():
         else f"          <li>{esc(n)}</li>" for n, u in others)
     body = f'''  <main id="main" class="page">
 
-{head_block(crumb_trail((None, "work")), "Work", "Infrastructure, AI and web projects, from a datacenter study to a site that passed 10 million visits.")}
+{head_block(crumb_trail((None, "work")), "Work", "Linux, Docker and infrastructure projects, from a datacenter study to a site that passed 10 million visits.")}
 
     <ol class="work-list">
 {rows}
@@ -262,7 +262,7 @@ def lab():
 
 {sec("What runs here", points([
         "Multi-node virtualisation with <b>Proxmox VE</b>: web services, monitoring tools and game servers (Minecraft, CS2, FiveM).",
-        "<b>Local LLMs</b> with Ollama, and experiments with AI agents connected to tools through <b>MCP</b>.",
+        "<b>Local LLMs</b> on NVIDIA GPUs, run in <b>Docker</b> (CUDA, Ollama), and experiments with agents connected to tools through <b>MCP</b>.",
         "An <b>Nginx</b> reverse proxy with load balancing, behind <b>Cloudflare</b> protection.",
         "Full <b>Linux</b> administration: network configuration, access management, backups, and hardening of exposed services.",
         'It hosted the <a href="/work/earthquake-tracker/">Morocco Earthquake Tracker</a> through more than 10 million visits, without interruption.',
@@ -272,7 +272,7 @@ def lab():
 
   </main>'''
     return page("/lab/", "RocmineLabs — ROCMINE",
-                "RocmineLabs: a home datacenter with Dell PowerEdge R630 and Precision T5820 servers running Proxmox VE, Nginx, Cloudflare, local LLMs with Ollama and MCP agents.",
+                "RocmineLabs: a home datacenter with Dell PowerEdge R630 and Precision T5820 servers running Proxmox VE, Docker, Nginx, Cloudflare and local LLMs on NVIDIA GPUs.",
                 body, active="lab", extra_head=ld_script(breadcrumb_ld(("Lab", "/lab/"))))
 
 
@@ -332,7 +332,7 @@ def about():
           <li>Nexus AI Club, EMSI <span>Member · 2024</span></li>
           <li>Innovation Club <span>Member · 2026</span></li>
         </ul>'''
-    contact = f'''        <p class="lead-p">Open to opportunities in AI, cloud and infrastructure. My CV is available on request.</p>
+    contact = f'''        <p class="lead-p">Open to opportunities in Linux, Docker and infrastructure. My CV is available on request.</p>
         <p><a class="btn" href="mailto:{EMAIL}?subject=CV%20request">Ask for my CV</a></p>
         <dl class="kv">
           <dt>Email</dt><dd><a href="mailto:{EMAIL}">{EMAIL}</a></dd>
@@ -340,9 +340,10 @@ def about():
           <dt>LinkedIn</dt><dd><a href="https://linkedin.com/in/rocmine" target="_blank" rel="noopener noreferrer">linkedin.com/in/rocmine</a></dd>
         </dl>'''
     profile = '''        <div class="prose">
-          <p>I'm a State Engineer in Computer Science and Networks (MIAGE option), graduated from the École Marocaine des Sciences d'Ingénieur in Rabat, with a hybrid profile across generative AI, cloud and infrastructure.</p>
-          <p>I design LLM-based applications (OpenAI, Claude and Mistral APIs, RAG, AI agents and MCP), and I'm comfortable with the chain that takes them to production: public cloud (GCP, AWS, Azure), containers and orchestration, Infrastructure as Code and CI/CD.</p>
-          <p>My final-year project at CBI.MA compared 3-Tier and hyperconverged datacenter architectures. Alongside it, my homelab runs local LLMs, web services, and a site that passed 10 million visits.</p>
+          <p>I'm a State Engineer in Computer Science and Networks (MIAGE option), graduated from the École Marocaine des Sciences d'Ingénieur in Rabat. I work mostly with Linux servers and Docker.</p>
+          <p>I build, host and look after services from my own home datacenter: Proxmox, Nginx behind Cloudflare, backups and hardening. It hosted a site that passed 10 million visits without interruption.</p>
+          <p>I also run local LLMs on NVIDIA GPUs in Docker (CUDA, Ollama), and I like taking hardware and firmware apart: router firmware, a phone's OS, custom Windows installs.</p>
+          <p>My final-year project at CBI.MA compared 3-Tier and hyperconverged datacenter architectures (VMware ESXi, TrueNAS, Nutanix, Veeam).</p>
         </div>'''
     body = f'''  <main id="main" class="page">
 
@@ -361,17 +362,17 @@ def about():
 {sec("Languages", '        <p class="lead-p">Arabic B2 · French B2 · English B2</p>')}
 
 {sec("Beyond the code", beyond + '''
-        <p class="lead-p muted">Interests: homelab and self-hosting, generative AI and local LLMs, gaming and streaming (CS2, Valorant), video editing and animation.</p>''')}
+        <p class="lead-p muted">Interests: homelab and self-hosting, local LLMs and GPUs, DIY and modding, gaming and streaming (CS2, Valorant), video editing and animation.</p>''')}
 
 {sec("Contact", contact)}
 
   </main>'''
     return page("/about/", "About — ROCMINE",
-                "Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in generative AI, cloud, DevOps and datacenter infrastructure.",
+                "Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in Linux servers, Docker, datacenter infrastructure, NVIDIA GPUs and local LLMs.",
                 body, active="about", extra_head=ld_script({
                     "@context": "https://schema.org", "@type": "ProfilePage", "url": SITE + "/about/", "name": "About",
                     "mainEntity": {"@type": "Person", "@id": PERSON_ID, "name": "Rochdi Mohamed Amine",
-                                   "jobTitle": "AI, Cloud & Infrastructure Engineer",
+                                   "jobTitle": "Linux & Infrastructure Engineer",
                                    "sameAs": ["https://github.com/Rocmine", "https://linkedin.com/in/rocmine"]}}) +
                     ld_script(breadcrumb_ld(("About", "/about/"))))
 
@@ -389,16 +390,11 @@ def stack():
             inner += f'{chr(10)}        <p class="used-in"><a href="{g["link"]["href"]}">{esc(g["link"]["label"])}</a></p>'
         groups.append(sec(g["name"], inner))
     langs = " · ".join(esc(l["name"]) for l in gh["languages"])
-    recent = "".join(
-        f'{chr(10)}          <li><a href="{r["url"]}" target="_blank" rel="noopener noreferrer">{esc(r["name"])}</a>'
-        f'<span>{esc(r["language"] or "no language")} · {esc(r["pushed"])}</span></li>' for r in gh["recent"])
     github = f'''        <dl class="kv">
           <dt>Account</dt><dd><a href="https://github.com/{gh["login"]}" target="_blank" rel="noopener noreferrer">github.com/{esc(gh["login"])}</a>, since {gh["since"]}</dd>
           <dt>Repos</dt><dd>{gh["public_repos"]} public ({gh["own_repos"]} of my own, {gh["forks"]} forks)</dd>
           <dt>Languages</dt><dd>{langs}</dd>
         </dl>
-        <ul class="dl-simple">{recent}
-        </ul>
         <p class="diagram-note">Snapshot from the public GitHub API, {esc(gh["fetched"])}.</p>'''
     body = f'''  <main id="main" class="page">
 
@@ -412,7 +408,7 @@ def stack():
 
   </main>'''
     return page("/stack/", "Stack — ROCMINE",
-                "The languages, tools and hardware behind Rochdi Mohamed Amine's work: AI, cloud, DevOps, Linux and a Proxmox homelab.",
+                "The languages, tools and hardware behind Rochdi Mohamed Amine's work: Linux, Docker, GPUs and local LLMs, DevOps and a Proxmox homelab.",
                 body, active="stack", extra_head=ld_script(breadcrumb_ld(("Stack", "/stack/"))))
 
 

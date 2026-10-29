@@ -1,12 +1,47 @@
 {
   "_note": "Share cards (1200x630). slug = last part of the page URL ('home' for /). Rebuild with: python tools/make_assets.py cards",
   "cards": [
-    {"slug": "home", "path": "~/", "title": "Rochdi Mohamed Amine", "line": "AI · cloud · infrastructure engineer"},
-    {"slug": "work", "path": "~/work", "title": "Work", "line": "Infrastructure, AI and web projects"},
-    {"slug": "earthquake-tracker", "path": "~/work/earthquake-tracker", "title": "Morocco Earthquake Tracker", "line": "10M+ visits, no interruption"},
-    {"slug": "datacenter-hci", "path": "~/work/datacenter-hci", "title": "Datacenter: 3-Tier vs HCI", "line": "Final-year project at CBI.MA"},
-    {"slug": "lab", "path": "~/lab", "title": "RocmineLabs", "line": "A home datacenter"},
-    {"slug": "about", "path": "~/about", "title": "About", "line": "State Engineer, EMSI Rabat 2026"},
-    {"slug": "stack", "path": "~/stack", "title": "Stack", "line": "What I build with, and run it on"}
+    {
+      "slug": "home",
+      "path": "~/",
+      "title": "Rochdi Mohamed Amine",
+      "line": "linux · docker · infrastructure engineer"
+    },
+    {
+      "slug": "work",
+      "path": "~/work",
+      "title": "Work",
+      "line": "Linux, Docker and infrastructure projects"
+    },
+    {
+      "slug": "earthquake-tracker",
+      "path": "~/work/earthquake-tracker",
+      "title": "Morocco Earthquake Tracker",
+      "line": "10M+ visits, no interruption"
+    },
+    {
+      "slug": "datacenter-hci",
+      "path": "~/work/datacenter-hci",
+      "title": "Datacenter: 3-Tier vs HCI",
+      "line": "Final-year project at CBI.MA"
+    },
+    {
+      "slug": "lab",
+      "path": "~/lab",
+      "title": "RocmineLabs",
+      "line": "A home datacenter"
+    },
+    {
+      "slug": "about",
+      "path": "~/about",
+      "title": "About",
+      "line": "State Engineer, EMSI Rabat 2026"
+    },
+    {
+      "slug": "stack",
+      "path": "~/stack",
+      "title": "Stack",
+      "line": "What I build with, and run it on"
+    }
   ]
 }

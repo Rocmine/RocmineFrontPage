@@ -35,10 +35,7 @@ def main(login="Rocmine"):
         "own_repos": len(own),
         "forks": sum(1 for r in repos if r["fork"]),
         "languages": [{"name": n, "repos": c} for n, c in langs.most_common()],
-        "recent": [{
-            "name": r["name"], "url": r["html_url"], "language": r["language"],
-            "description": r["description"], "pushed": r["pushed_at"][:7],
-        } for r in [x for x in own if x["language"]][:6]],
+        "names": sorted(r["name"] for r in repos),   # used by tools/check.py only; never rendered
     }
     OUT.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf8")
     print(f"wrote {OUT.name}: {data['public_repos']} public repos, {data['own_repos']} own, languages {[l['name'] for l in data['languages']]}")

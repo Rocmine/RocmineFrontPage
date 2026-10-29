@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>About — ROCMINE</title>
-  <meta name="description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in generative AI, cloud, DevOps and datacenter infrastructure." />
+  <meta name="description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in Linux servers, Docker, datacenter infrastructure, NVIDIA GPUs and local LLMs." />
   <meta name="theme-color" content="#06060f" />
   <meta name="color-scheme" content="dark" />
   <link rel="canonical" href="https://rocmine.net/about/" />
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="ROCMINE" />
   <meta property="og:title" content="About — ROCMINE" />
-  <meta property="og:description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in generative AI, cloud, DevOps and datacenter infrastructure." />
+  <meta property="og:description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in Linux servers, Docker, datacenter infrastructure, NVIDIA GPUs and local LLMs." />
   <meta property="og:url" content="https://rocmine.net/about/" />
   <meta property="og:image" content="https://rocmine.net/assets/img/cards/about.jpg" />
   <meta property="og:image:width" content="1200" />
@@ -20,7 +20,7 @@
   <meta property="og:image:alt" content="About — ROCMINE" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="About — ROCMINE" />
-  <meta name="twitter:description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in generative AI, cloud, DevOps and datacenter infrastructure." />
+  <meta name="twitter:description" content="Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in Linux servers, Docker, datacenter infrastructure, NVIDIA GPUs and local LLMs." />
   <meta name="twitter:image" content="https://rocmine.net/assets/img/cards/about.jpg" />
 
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
@@ -42,7 +42,7 @@
     "@type": "Person",
     "@id": "https://rocmine.net/#person",
     "name": "Rochdi Mohamed Amine",
-    "jobTitle": "AI, Cloud & Infrastructure Engineer",
+    "jobTitle": "Linux & Infrastructure Engineer",
     "sameAs": [
       "https://github.com/Rocmine",
       "https://linkedin.com/in/rocmine"
@@ -102,9 +102,10 @@
       <h2 class="sec-label">Profile</h2>
       <div class="sec-body">
         <div class="prose">
-          <p>I'm a State Engineer in Computer Science and Networks (MIAGE option), graduated from the École Marocaine des Sciences d'Ingénieur in Rabat, with a hybrid profile across generative AI, cloud and infrastructure.</p>
-          <p>I design LLM-based applications (OpenAI, Claude and Mistral APIs, RAG, AI agents and MCP), and I'm comfortable with the chain that takes them to production: public cloud (GCP, AWS, Azure), containers and orchestration, Infrastructure as Code and CI/CD.</p>
-          <p>My final-year project at CBI.MA compared 3-Tier and hyperconverged datacenter architectures. Alongside it, my homelab runs local LLMs, web services, and a site that passed 10 million visits.</p>
+          <p>I'm a State Engineer in Computer Science and Networks (MIAGE option), graduated from the École Marocaine des Sciences d'Ingénieur in Rabat. I work mostly with Linux servers and Docker.</p>
+          <p>I build, host and look after services from my own home datacenter: Proxmox, Nginx behind Cloudflare, backups and hardening. It hosted a site that passed 10 million visits without interruption.</p>
+          <p>I also run local LLMs on NVIDIA GPUs in Docker (CUDA, Ollama), and I like taking hardware and firmware apart: router firmware, a phone's OS, custom Windows installs.</p>
+          <p>My final-year project at CBI.MA compared 3-Tier and hyperconverged datacenter architectures (VMware ESXi, TrueNAS, Nutanix, Veeam).</p>
         </div>
       </div>
     </section>
@@ -171,36 +172,43 @@
       <h2 class="sec-label">Skills</h2>
       <div class="sec-body">
         <div class="skill-groups">
-        <div class="skill-group" id="skills-ai">
-          <h3>Generative AI &amp; agents</h3>
+        <div class="skill-group" id="skills-systems">
+          <h3>Linux &amp; servers</h3>
         <ul class="chips">
-          <li>LLM APIs: OpenAI, Claude, Mistral</li>
-          <li>Prompt engineering</li>
-          <li>RAG</li>
-          <li>LangChain</li>
-          <li>LlamaIndex</li>
-          <li>Vector databases (Chroma)</li>
-          <li>Local LLMs (Ollama)</li>
-          <li>AI agents &amp; MCP</li>
-          <li>AI coding assistants</li>
+          <li>Linux (Debian, Ubuntu, Arch, Alpine)</li>
+          <li>Bash scripting</li>
+          <li>Server hardening</li>
+          <li>Nginx (reverse proxy, load balancing)</li>
+          <li>Cloudflare</li>
+          <li>IP addressing</li>
+          <li>VLAN</li>
+          <li>Windows Server</li>
+          <li>Monitoring</li>
+          <li>High availability</li>
+          <li>Ethical-hacking basics</li>
+        </ul>
+          <p class="used-in">Used in: <a href="/work/earthquake-tracker/">Earthquake Tracker</a> · <a href="/lab/">RocmineLabs</a></p>
+        </div>
+        <div class="skill-group" id="skills-containers">
+          <h3>Docker &amp; containers</h3>
+        <ul class="chips">
+          <li>Docker</li>
+          <li>Portainer</li>
+          <li>Kubernetes</li>
         </ul>
           <p class="used-in">Used in: <a href="/lab/">RocmineLabs</a></p>
         </div>
-        <div class="skill-group" id="skills-cloud">
-          <h3>Cloud &amp; DevOps</h3>
+        <div class="skill-group" id="skills-gpu">
+          <h3>GPUs &amp; local LLMs</h3>
         <ul class="chips">
-          <li>GCP</li>
-          <li>AWS</li>
-          <li>Azure</li>
-          <li>Docker</li>
-          <li>Kubernetes</li>
-          <li>Terraform</li>
-          <li>Ansible</li>
-          <li>GitHub Actions</li>
-          <li>GitLab CI</li>
-          <li>Git / GitHub</li>
-          <li>Automation scripting</li>
+          <li>CUDA</li>
+          <li>NVIDIA GPUs</li>
+          <li>Local LLMs (Ollama)</li>
+          <li>LLMs on GPUs in Docker</li>
+          <li>LLM APIs: OpenAI, Claude, Mistral</li>
+          <li>RAG &amp; MCP agents</li>
         </ul>
+          <p class="used-in">Used in: <a href="/lab/">RocmineLabs</a></p>
         </div>
         <div class="skill-group" id="skills-datacenter">
           <h3>Virtualisation &amp; datacenter</h3>
@@ -225,21 +233,28 @@
         </ul>
           <p class="used-in">Used in: <a href="/work/datacenter-hci/">Datacenter 3-Tier vs HCI</a></p>
         </div>
-        <div class="skill-group" id="skills-systems">
-          <h3>Systems, networks &amp; security</h3>
+        <div class="skill-group" id="skills-cloud">
+          <h3>Cloud &amp; DevOps</h3>
         <ul class="chips">
-          <li>Linux (Debian / Ubuntu)</li>
-          <li>Windows Server</li>
-          <li>IP addressing</li>
-          <li>VLAN</li>
-          <li>Nginx (reverse proxy, load balancing)</li>
-          <li>Cloudflare</li>
-          <li>Server hardening</li>
-          <li>Ethical-hacking basics</li>
-          <li>Monitoring</li>
-          <li>High availability</li>
+          <li>GCP</li>
+          <li>AWS</li>
+          <li>Azure</li>
+          <li>Terraform</li>
+          <li>Ansible</li>
+          <li>GitHub Actions</li>
+          <li>GitLab CI</li>
+          <li>Git / GitHub</li>
+          <li>Automation scripting</li>
         </ul>
-          <p class="used-in">Used in: <a href="/work/earthquake-tracker/">Earthquake Tracker</a> · <a href="/lab/">RocmineLabs</a></p>
+        </div>
+        <div class="skill-group" id="skills-diy">
+          <h3>DIY, modding &amp; hacking</h3>
+        <ul class="chips">
+          <li>Router firmware modding (installing Linux)</li>
+          <li>Replacing a phone&#x27;s OS</li>
+          <li>Windows tweaking &amp; custom installs</li>
+          <li>Hardware DIY &amp; PC building</li>
+        </ul>
         </div>
         <div class="skill-group" id="skills-dev">
           <h3>Development</h3>
@@ -299,14 +314,14 @@
           <li>Nexus AI Club, EMSI <span>Member · 2024</span></li>
           <li>Innovation Club <span>Member · 2026</span></li>
         </ul>
-        <p class="lead-p muted">Interests: homelab and self-hosting, generative AI and local LLMs, gaming and streaming (CS2, Valorant), video editing and animation.</p>
+        <p class="lead-p muted">Interests: homelab and self-hosting, local LLMs and GPUs, DIY and modding, gaming and streaming (CS2, Valorant), video editing and animation.</p>
       </div>
     </section>
 
     <section class="sec">
       <h2 class="sec-label">Contact</h2>
       <div class="sec-body">
-        <p class="lead-p">Open to opportunities in AI, cloud and infrastructure. My CV is available on request.</p>
+        <p class="lead-p">Open to opportunities in Linux, Docker and infrastructure. My CV is available on request.</p>
         <p><a class="btn" href="mailto:amine.rochdi@rocmine.net?subject=CV%20request">Ask for my CV</a></p>
         <dl class="kv">
           <dt>Email</dt><dd><a href="mailto:amine.rochdi@rocmine.net">amine.rochdi@rocmine.net</a></dd>
