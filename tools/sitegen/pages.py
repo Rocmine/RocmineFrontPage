@@ -3,6 +3,7 @@ import json
 
 from .config import SITE, EMAIL, esc, load
 from .svg import diagram_quake, diagram_dc, diagram_lab, hw_r630, hw_t5820
+from .icons import svg as icon_svg, group_icon
 from .layout import (page, head_block, sec, points, chips, chips_links, crumb_trail, ld_script, breadcrumb_ld,
                      article_ld, PERSON_ID)
 
@@ -301,8 +302,8 @@ def skill_group(sid, name, items, used_in=None):
         links = " · ".join(f'<a href="{u["href"]}">{esc(u["label"])}</a>' for u in used_in)
         used = f'\n          <p class="used-in">Used in: {links}</p>'
     return f'''        <div class="skill-group" id="{sid}">
-          <h3>{esc(name)}</h3>
-{chips(items)}{used}
+          <h3>{icon_svg(group_icon(sid))}{esc(name)}</h3>
+{chips(items, sid)}{used}
         </div>'''
 
 

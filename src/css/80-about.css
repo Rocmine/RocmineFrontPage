@@ -17,7 +17,8 @@
 
 .skill-groups { display: grid; gap: 1.6rem; }
 .skill-group { scroll-margin-top: 1.5rem; }
-.skill-group h3 { font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.7rem; }
+.skill-group h3 { display: flex; align-items: center; gap: 0.55rem; font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.7rem; }
+.skill-group h3 .ic { width: 1.05rem; height: 1.05rem; color: var(--accent); }
 .skill-group:target h3 { color: var(--accent); }
 
 .used-in { margin-top: 0.8rem; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--dim); }

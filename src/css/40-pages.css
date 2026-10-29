@@ -75,14 +75,19 @@ main.page {
 
 .chips { display: flex; flex-wrap: wrap; gap: 0.4rem; }
 .chips li {
+  display: inline-flex; align-items: center; gap: 0.5rem;
   padding: 0.28rem 0.6rem;
   border: 1px solid var(--rule);
   font-size: 0.68rem; letter-spacing: 0.06em;
   color: var(--muted);
 }
 
+/* skill icons: monochrome, accent on hover */
+.ic { width: 0.95rem; height: 0.95rem; flex: none; color: var(--dim); transition: color 0.16s; }
+.chips li:hover .ic { color: var(--accent); }
+
 .chips-links li { padding: 0; }
-.chips-links a { display: block; padding: 0.36rem 0.6rem; color: inherit; text-decoration: none; transition: color 0.16s, background 0.16s; }
+.chips-links a { display: flex; align-items: center; gap: 0.5rem; padding: 0.36rem 0.6rem; color: inherit; text-decoration: none; transition: color 0.16s, background 0.16s; }
 .chips-links li:hover { border-color: var(--accent); }
 .chips-links a:hover { color: var(--fg); background: rgba(59, 109, 255, 0.12); }
 

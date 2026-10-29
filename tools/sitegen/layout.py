@@ -3,6 +3,7 @@ import os
 
 from . import config
 from .config import SITE, EMAIL, esc
+from .icons import resolve, svg as icon_svg, group_icon
 import json
 
 
@@ -154,14 +155,16 @@ def points(items):
     return '        <ul class="points">\n' + "\n".join(f"          <li>{i}</li>" for i in items) + "\n        </ul>"
 
 
-def chips(items):
-    return '        <ul class="chips">\n' + "\n".join(f"          <li>{esc(i)}</li>" for i in items) + "\n        </ul>"
+def chips(items, group=None):
+    """Plain chips with an icon each. group (a skills group id) picks the fallback glyph."""
+    return '        <ul class="chips">\n' + "\n".join(
+        f"          <li>{icon_svg(resolve(i, group))}{esc(i)}</li>" for i in items) + "\n        </ul>"
 
 
 def chips_links(pairs):
     """Chips that link to a skills group on the About page: [(label, href), ...]."""
     return '        <ul class="chips chips-links">\n' + "\n".join(
-        f'          <li><a href="{href}">{esc(label)}</a></li>' for label, href in pairs) + "\n        </ul>"
+        f'          <li><a href="{href}">{icon_svg(resolve(label))}{esc(label)}</a></li>' for label, href in pairs) + "\n        </ul>"
 
 
 def crumb_trail(*parts):

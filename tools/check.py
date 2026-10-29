@@ -32,6 +32,7 @@ class Page(HTMLParser):
         self.ids, self.refs, self.imgs, self.metas, self.h1 = [], [], [], {}, 0
         self.title, self._in_title, self._in_ld, self.ld, self.canonical, self.lang = "", False, False, [], None, None
         self.resources = []   # things the browser loads (src, stylesheet, preload...)
+        self.uses = []        # <use href="/sprite.svg#id"> references
 
     def handle_starttag(self, tag, a):
         a = dict(a)
@@ -56,6 +57,8 @@ class Page(HTMLParser):
                 self.ld.append("")
             if a.get("src"):
                 self.resources.append(a["src"])
+        elif tag == "use" and a.get("href"):
+            self.uses.append(a["href"])
         elif tag == "a" and a.get("href"):
             self.refs.append(a["href"])
         elif tag in ("img", "source", "video") and (a.get("src") or a.get("poster")):
@@ -149,6 +152,14 @@ def main():
                 continue
             if not target_file(r.split("?")[0].split("#")[0]).exists():
                 err(rel, f"missing resource: {r}")
+        # icons: the symbol must exist in the sprite
+        for u in p.uses:
+            path, _, sym = u.partition("#")
+            sprite_f = target_file(path)
+            if not sprite_f.exists():
+                err(rel, f"missing sprite: {path}")
+            elif f'id="{sym}"' not in sprite_f.read_text(encoding="utf8"):
+                err(rel, f"icon not in sprite: {u}")
         # links
         for href in p.refs:
             if href.startswith(("mailto:", "tel:")):
