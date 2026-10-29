@@ -22,6 +22,29 @@
   }
   syncVideo();
 
+  /* ── Mobile menu (hamburger) ─────────────────────────────────────────── */
+  const header = document.getElementById('header');
+  const navToggle = document.getElementById('nav-toggle');
+  const siteNav = document.getElementById('site-nav');
+  if (header && navToggle && siteNav) {
+    const phone = window.matchMedia('(max-width: 640px)');
+    const isOpen = () => header.classList.contains('nav-open');
+    const setOpen = (open, returnFocus) => {
+      header.classList.toggle('nav-open', open);
+      root.classList.toggle('nav-lock', open);
+      navToggle.setAttribute('aria-expanded', String(open));
+      navToggle.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+      if (open) { const first = siteNav.querySelector('a'); if (first) first.focus(); }
+      else if (returnFocus) navToggle.focus();
+    };
+    navToggle.addEventListener('click', () => setOpen(!isOpen(), true));
+    siteNav.addEventListener('click', e => { if (e.target.closest('a')) setOpen(false, false); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && isOpen()) setOpen(false, true); });
+    document.addEventListener('click', e => { if (isOpen() && !header.contains(e.target)) setOpen(false, false); });
+    header.addEventListener('focusout', e => { if (isOpen() && e.relatedTarget && !header.contains(e.relatedTarget)) setOpen(false, false); });
+    phone.addEventListener('change', () => setOpen(false, false));
+  }
+
   /* ── Toast ───────────────────────────────────────────────────────────── */
   const toast = document.getElementById('toast');
   let toastTimer;

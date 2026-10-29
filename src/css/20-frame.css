@@ -11,6 +11,7 @@
 }
 
 #header {
+  position: relative; z-index: 20;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -63,6 +64,25 @@
 .site-nav a:hover::after,
 .site-nav a[aria-current="page"]::after { width: 100%; }
 .site-nav a[aria-current="page"] { color: var(--fg); }
+
+/* hamburger: hidden by default, enabled for phones in 90-responsive.css */
+.nav-toggle {
+  display: none; align-items: center; justify-content: center;
+  width: 44px; height: 44px; margin-right: -12px; padding: 0;
+  background: none; border: 0; color: var(--fg); cursor: pointer; flex-shrink: 0;
+}
+.nav-bars { position: relative; display: block; width: 20px; height: 14px; }
+.nav-bars i {
+  position: absolute; left: 0; width: 100%; height: 1.5px; background: currentColor;
+  transition: transform 0.35s var(--ease), top 0.35s var(--ease), opacity 0.2s ease;
+}
+.nav-bars i:nth-child(1) { top: 0; }
+.nav-bars i:nth-child(2) { top: 6px; }
+.nav-bars i:nth-child(3) { top: 12px; }
+.nav-open .nav-bars i:nth-child(1) { top: 6px; transform: rotate(45deg); }
+.nav-open .nav-bars i:nth-child(2) { opacity: 0; }
+.nav-open .nav-bars i:nth-child(3) { top: 6px; transform: rotate(-45deg); }
+html.nav-lock { overflow: hidden; }
 
 .status-badge {
   display: inline-flex; align-items: center; gap: 0.38rem;

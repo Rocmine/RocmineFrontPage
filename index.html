@@ -30,7 +30,7 @@
 
   <link rel="preload" href="/assets/fonts/Unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/JetBrainsMono-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/main.css?v=8bc56656" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=99a656ce" />
   <script>(function(d){d.classList.add('js');try{d.dataset.motion=localStorage.getItem('rocmine-motion')==='off'?'reduced':'full'}catch(e){d.dataset.motion='full'}})(document.documentElement)</script>
   <script type="application/ld+json">
 {
@@ -97,8 +97,9 @@
       </video>
       <span class="logotype" translate="no">ROCMINE</span>
     </a>
-    <nav class="site-nav reveal d-1" aria-label="Primary"><a href="/work/">~/work</a><a href="/lab/">~/lab</a><a href="/stack/">~/stack</a><a href="/about/">~/about</a></nav>
+    <nav class="site-nav reveal d-1" id="site-nav" aria-label="Primary"><a href="/work/">~/work</a><a href="/lab/">~/lab</a><a href="/stack/">~/stack</a><a href="/about/">~/about</a></nav>
     <span class="status-badge reveal d-1" aria-label="Status: available"><span class="status-dot" aria-hidden="true"></span>Available</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span class="nav-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </header>
 
   <main id="main" class="main-home">
@@ -182,6 +183,6 @@
 
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<script src="/assets/js/main.js?v=2b7396bf" defer></script>
+<script src="/assets/js/main.js?v=25e756fc" defer></script>
 </body>
 </html>

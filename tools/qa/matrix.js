@@ -5,6 +5,7 @@
    node matrix.js                               Edge (default), all pages
    node matrix.js --engine firefox              chromium | msedge | firefox | webkit
    node matrix.js --pages home --shots          home only, save screenshots to tools/qa/shots/
+   node matrix.js --group phone --pages home,about   only phones (groups: phone land tablet desktop wide zoom)
 
    Failures: horizontal overflow, overlapping home blocks, text under 10.4px,
    links/buttons under 24px (44px on touch), console errors, home not fitting on desktop sizes. */
@@ -15,6 +16,8 @@ const ROOT = path.resolve(__dirname, '..', '..');
 const args = process.argv.slice(2);
 const opt = (n, d) => { const i = args.indexOf('--' + n); return i < 0 ? d : (args[i + 1] && !args[i + 1].startsWith('--') ? args[i + 1] : true); };
 const ENGINE = opt('engine', 'msedge'); const PAGES_OPT = opt('pages', 'all'); const SHOTS = !!opt('shots', false);
+const GROUP = opt('group', 'all');   // phone | land | tablet | desktop | wide | zoom | all
+const GROUPS = { phone: /^(phone|fold)/, land: /^land/, tablet: /^tablet/, desktop: /^(laptop|desk|fhd)/, wide: /^(qhd|uw|uhd)/, zoom: /^zoom/ };
 
 const PAGES = ['/', '/work/', '/work/earthquake-tracker/', '/work/datacenter-hci/', '/lab/', '/about/', '/stack/', '/404.html']
   .filter(p => fs.existsSync(path.join(ROOT, p.endsWith('/') ? p + 'index.html' : p)));
@@ -88,10 +91,12 @@ function inPage() {
   const srv = await serve(); const base = 'http://localhost:' + srv.address().port;
   const browserType = ENGINE === 'firefox' ? firefox : ENGINE === 'webkit' ? webkit : chromium;
   const browser = await browserType.launch(ENGINE === 'msedge' ? { channel: 'msedge' } : {});
-  const pages = PAGES_OPT === 'home' ? ['/'] : PAGES;
+  const WANT = { home: '/', work: '/work/', quake: '/work/earthquake-tracker/', dc: '/work/datacenter-hci/', lab: '/lab/', stack: '/stack/', about: '/about/', 404: '/404.html' };
+  const pages = PAGES_OPT === 'all' ? PAGES : String(PAGES_OPT).split(',').map(k => WANT[k.trim()]).filter(Boolean);
+  const viewports = GROUP === 'all' ? VIEWPORTS : VIEWPORTS.filter(v => GROUPS[GROUP] && GROUPS[GROUP].test(v[0]));
   if (SHOTS) fs.mkdirSync(path.join(__dirname, 'shots'), { recursive: true });
   let fails = 0; const rows = [];
-  for (const [name, w, h, dpr, touch] of VIEWPORTS) {
+  for (const [name, w, h, dpr, touch] of viewports) {
     const ctx = await browser.newContext({ viewport: { width: w, height: h }, deviceScaleFactor: dpr, hasTouch: touch, isMobile: touch && ENGINE !== 'firefox' });
     for (const p of pages) {
       const pg = await ctx.newPage(); const errs = [];
@@ -114,7 +119,7 @@ function inPage() {
     }
     await ctx.close();
   }
-  console.log(`engine=${ENGINE}  viewports=${VIEWPORTS.length}  pages=${pages.length}  problems=${fails}`);
+  console.log(`engine=${ENGINE}  group=${GROUP}  viewports=${viewports.length}  pages=${pages.length}  problems=${fails}`);
   rows.forEach(r => console.log(r));
   await browser.close(); srv.close(); process.exit(fails ? 1 : 0);
 })();

@@ -45,6 +45,29 @@
   .site-nav { order: 3; width: 100%; margin-left: 0; gap: 1.2rem; }
   .site-nav a { padding: 0.5rem 0; }
 
+  /* hamburger: with JS the links live in a panel under the header */
+  .js .nav-toggle { display: inline-flex; }
+  .js .status-badge { margin-left: auto; }
+  .js .site-nav {
+    position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0;
+    flex-direction: column; align-items: stretch; gap: 0; padding: 0.3rem 0;
+    background: #07070f; border: 1px solid var(--rule); border-top: 0;
+    animation: none;
+    opacity: 0; visibility: hidden; transform: translateY(-6px); pointer-events: none;
+    transition: opacity 0.25s var(--ease), transform 0.25s var(--ease), visibility 0s linear 0.25s;
+  }
+  .js .nav-open .site-nav {
+    opacity: 1; visibility: visible; transform: none; pointer-events: auto;
+    transition-delay: 0s;
+  }
+  .js .site-nav a {
+    padding: 1.05rem 1rem; font-size: 0.8rem; letter-spacing: 0.12em;
+    border-bottom: 1px solid var(--rule);
+  }
+  .js .site-nav a:last-child { border-bottom: 0; }
+  .js .site-nav a::after { display: none; }
+  .js .site-nav a[aria-current="page"] { color: var(--fg); box-shadow: inset 2px 0 var(--accent); }
+
   #footer { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding-top: 0.55rem; }
   .footer-right { align-self: flex-end; }
 

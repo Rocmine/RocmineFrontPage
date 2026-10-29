@@ -31,8 +31,9 @@ def header(active, home=False):
       </video>
       <span class="logotype" translate="no">ROCMINE</span>
     </a>
-    <nav class="site-nav{r1}" aria-label="Primary">{links}</nav>
+    <nav class="site-nav{r1}" id="site-nav" aria-label="Primary">{links}</nav>
     <span class="status-badge{r1}" aria-label="Status: available"><span class="status-dot" aria-hidden="true"></span>Available</span>
+    <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span class="nav-bars" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </header>'''
 
 
