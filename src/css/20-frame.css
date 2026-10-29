@@ -6,6 +6,7 @@
   grid-template-rows: auto 1fr auto;
   width: 100%;
   min-height: 100vh; min-height: 100dvh;
+  container-type: inline-size;
   padding: max(var(--pad), env(safe-area-inset-top)) max(var(--pad), env(safe-area-inset-right)) max(var(--pad), env(safe-area-inset-bottom)) max(var(--pad), env(safe-area-inset-left));
 }
 
@@ -43,7 +44,7 @@
 }
 .site-nav a {
   position: relative;
-  font-size: clamp(0.64rem, 0.9vw, 0.72rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.74rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   text-decoration: none;
@@ -65,7 +66,7 @@
 
 .status-badge {
   display: inline-flex; align-items: center; gap: 0.38rem;
-  font-size: 0.62rem;
+  font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(74,222,128,0.8);
@@ -93,9 +94,9 @@
 }
 .footer-links { display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
 .link-btn {
-  background: none; border: none; padding: 0;
+  background: none; border: none; padding: 0.4rem 0;
   font-family: inherit;
-  font-size: clamp(0.64rem, 0.9vw, 0.72rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.74rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--muted);
@@ -106,7 +107,7 @@
 }
 .link-btn::after {
   content: '';
-  position: absolute; left: 0; bottom: -2px;
+  position: absolute; left: 0; bottom: 0.3rem;
   width: 0; height: 1px;
   background: var(--accent);
   transition: width 0.2s ease;
@@ -117,7 +118,8 @@
 
 .footer-right { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
 .site-link {
-  font-size: clamp(0.64rem, 0.9vw, 0.7rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.72rem);
+  display: inline-block; padding: 0.5rem 0;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--dim);
@@ -125,7 +127,7 @@
   transition: color 0.16s;
 }
 .site-link:hover { color: var(--fg); }
-.footer-copy { font-size: 0.62rem; letter-spacing: 0.08em; color: var(--dim); }
+.footer-copy { font-size: 0.68rem; letter-spacing: 0.08em; color: var(--dim); }
 
 /* ─── TOAST ──────────────────────────────────────────────────────────────── */
 #toast {
@@ -159,7 +161,7 @@
 
 /* ─── ROLE LINE (typewriter) ─────────────────────────────────────────────── */
 .role-line {
-  font-size: clamp(0.64rem, 1vw, 0.76rem);
+  font-size: clamp(0.7rem, 1vw, 0.78rem);
   color: var(--muted);
   letter-spacing: 0.03em;
   white-space: nowrap;

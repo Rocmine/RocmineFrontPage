@@ -1,0 +1,7 @@
+{
+  "name": "rocmine-qa",
+  "private": true,
+  "description": "Dev-only device matrix for the portfolio. Not part of the published site.",
+  "scripts": { "matrix": "node matrix.js" },
+  "devDependencies": { "playwright": "^1.50.0" }
+}

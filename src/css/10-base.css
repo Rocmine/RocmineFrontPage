@@ -9,10 +9,14 @@ html {
   -webkit-font-smoothing: antialiased;
   color-scheme: dark;
   -webkit-tap-highlight-color: rgba(59,109,255,0.2);
-  cursor: url('/assets/cursor/rocmine-cursor.cur'), auto;
   scroll-behavior: smooth;
 }
-body { min-height: 100%; }
+body { min-height: 100%; overflow-x: clip; }
+
+@media (pointer: fine) { html { cursor: url('/assets/cursor/rocmine-cursor.cur'), auto; } }
+
+/* Large screens: let rem-based UI grow smoothly (16px at 1920 -> 24px cap) */
+@media (min-width: 1920px) { html { font-size: clamp(16px, calc(0.55vw + 5.5px), 24px); } }
 
 a { color: inherit; }
 a, button { touch-action: manipulation; }

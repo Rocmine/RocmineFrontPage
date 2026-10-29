@@ -9,7 +9,7 @@
 }
 .timeline > li:first-child { padding-top: 0; }
 .timeline > li:last-child { border-bottom: none; }
-.tl-num  { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.2rem; }
+.tl-num  { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.2rem; }
 .tl-date { font-size: 0.7rem; letter-spacing: 0.06em; color: var(--muted); padding-top: 0.15rem; }
 .tl-role { font-size: 0.86rem; font-weight: 600; line-height: 1.5; color: var(--fg); }
 .tl-org  { font-size: 0.74rem; color: var(--muted); margin-top: 0.15rem; }

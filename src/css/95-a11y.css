@@ -1,0 +1,39 @@
+/* ─── INPUT & ACCESSIBILITY ──────────────────────────────────────────────────
+   Touch targets, high contrast, Windows forced colours. */
+
+/* Touch: every link and button gets at least a 44px hit area */
+@media (pointer: coarse) {
+  .header-left { min-height: 44px; }
+  .site-nav a { padding: 0.95rem 0.15rem; }
+  .site-nav a::after { bottom: 0.65rem; }
+  .link-btn { padding: 1.05rem 0; }
+  .link-btn::after { bottom: 0.9rem; }
+  .site-link { padding: 0.95rem 0; }
+  .specialties a { padding-block: 0.95rem; }
+  .btn { min-height: 44px; }
+  .other-list a { padding-block: 0.95rem; }
+  .kv dd a { padding-block: 0.95rem; }
+  .crumb a { padding-block: 0.95rem; }
+  .skip { padding: 0.9rem 1rem; }
+}
+
+/* More contrast on request */
+@media (prefers-contrast: more) {
+  :root {
+    --muted: rgba(236,236,242,0.86);
+    --dim:   rgba(236,236,242,0.72);
+    --rule:  rgba(236,236,242,0.34);
+  }
+  .chips li, .node, .encl { border-color: rgba(236,236,242,0.6); }
+}
+
+/* Windows high-contrast / forced colours: keep structure and focus visible */
+@media (forced-colors: active) {
+  .rail::before { background: Highlight; }
+  .status-dot, .cursor { background: Highlight; forced-color-adjust: none; }
+  .btn, .chips li { border: 1px solid CanvasText; }
+  :focus-visible { outline-color: Highlight; }
+  .diagram .node, .diagram .encl, .diagram .wire { stroke: CanvasText; }
+  .diagram text { fill: CanvasText; }
+  #portrait-bg, #grain { display: none; }
+}

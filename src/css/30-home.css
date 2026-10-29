@@ -1,13 +1,13 @@
 /* ═══ HOME ═══════════════════════════════════════════════════════════════ */
-body.page-home { overflow: hidden; height: 100dvh; }
-body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
+/* A one-screen poster whenever the content fits; it scrolls (never clips) when it does not. */
+body.page-home #grid { min-height: 100vh; min-height: 100dvh; }
 
 .main-home {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-rows: 1fr auto;
-  overflow: hidden;
+  overflow: hidden; overflow: clip;
   padding-top:    clamp(0.5rem, 2vh, 1.5rem);
   padding-bottom: clamp(0.4rem, 1.5vh, 1.2rem);
 }
@@ -37,7 +37,7 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
   position: absolute; right: 0; top: 50%;
   transform: translateY(-50%);
   writing-mode: vertical-rl;
-  font-size: 0.52rem;
+  font-size: 0.6rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: rgba(236,236,242,0.14);
@@ -58,7 +58,8 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
 .name-line {
   font-family: 'Unbounded', sans-serif;
   font-weight: 900;
-  font-size: clamp(2.6rem, 7.6vw, 9.5rem);
+  /* scales with the real column (cqi) and with screen height (svh): phones, landscape, ultrawide */
+  font-size: clamp(2.4rem, min(8.2cqi, 15svh), 10rem);
   letter-spacing: -0.04em;
   color: var(--fg);
   white-space: nowrap;
@@ -79,7 +80,7 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
   border-top: 1px solid var(--rule);
 }
 .specialties a {
-  display: flex; align-items: baseline; gap: 0.3rem;
+  display: flex; align-items: baseline; gap: 0.3rem; padding-block: 0.4rem;
   font-size: clamp(0.68rem, 1.05vw, 0.78rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -88,7 +89,7 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
   transition: color 0.16s;
 }
 .specialties a:hover { color: var(--fg); }
-.spec-num { color: var(--accent); font-size: 0.58rem; letter-spacing: 0.1em; }
+.spec-num { color: var(--accent); font-size: 0.66rem; letter-spacing: 0.1em; }
 
 .name-stats {
   display: flex; align-items: flex-start; flex-wrap: wrap;
@@ -97,9 +98,9 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
   padding-top: clamp(0.4rem, 1.1vh, 0.65rem);
 }
 .stat { display: flex; flex-direction: column; gap: 0.15rem; }
-.stat-key { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+.stat-key { font-size: 0.66rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
 .stat-val {
-  font-size: clamp(0.6rem, 0.9vw, 0.7rem);
+  font-size: clamp(0.68rem, 0.9vw, 0.74rem);
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--muted); font-weight: 600;
 }
@@ -108,7 +109,7 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
 .stack-ticker {
   grid-column: 1 / -1; grid-row: 2;
   display: flex; align-items: baseline; gap: 0.6em;
-  font-size: clamp(0.58rem, 0.85vw, 0.66rem);
+  font-size: clamp(0.66rem, 0.85vw, 0.72rem);
   letter-spacing: 0.18em;
   color: var(--dim);
   text-transform: uppercase;
@@ -125,3 +126,6 @@ body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
 .ticker-items { white-space: nowrap; padding-right: 4em; }
 @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
+@supports not (width: 1cqi) {
+  .name-line { font-size: clamp(2.4rem, min(7.6vw, 15svh), 10rem); }
+}

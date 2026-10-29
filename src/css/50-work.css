@@ -10,7 +10,7 @@
   text-decoration: none;
   color: inherit;
 }
-.w-num   { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); }
+.w-num   { font-size: 0.7rem; letter-spacing: 0.1em; color: var(--accent); }
 .w-title {
   display: block;
   font-family: 'Unbounded', sans-serif; font-weight: 700;
@@ -41,7 +41,7 @@ a.work-link:focus-visible .w-thumb { grid-template-rows: 1fr; }
 .other-list { display: flex; flex-wrap: wrap; gap: 0.5rem 0.4rem; align-items: center; }
 .other-list li { font-size: 0.74rem; letter-spacing: 0.04em; color: var(--muted); }
 .other-list li + li::before { content: '·'; margin-right: 0.4rem; color: var(--dim); }
-.other-list a { text-decoration: none; border-bottom: 1px solid var(--rule); transition: color 0.16s, border-color 0.16s; }
+.other-list a { display: inline-block; padding-block: 0.35rem; text-decoration: none; border-bottom: 1px solid var(--rule); transition: color 0.16s, border-color 0.16s; }
 .other-list a:hover { color: var(--fg); border-color: var(--accent); }
 
 /* ═══ CASE STUDY ═════════════════════════════════════════════════════════ */
