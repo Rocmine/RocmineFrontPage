@@ -48,13 +48,13 @@ body.page-home #grid { min-height: 100vh; min-height: 100dvh; }
 .left-col {
   grid-column: 1; grid-row: 1;
   display: flex; flex-direction: column; justify-content: center;
-  gap: clamp(0.6rem, 1.8vh, 1.3rem);
+  gap: clamp(0.5rem, 1.5vh, 1.2rem);
   z-index: 1;
   min-height: 0;
 }
 
 .name-block { line-height: 0.88; }
-.name-block span { display: block; overflow: hidden; }
+.name-block > .name-line { display: block; overflow: hidden; }
 .name-line {
   font-family: 'Unbounded', sans-serif;
   font-weight: 900;

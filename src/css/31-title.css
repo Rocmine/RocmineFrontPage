@@ -1,0 +1,43 @@
+/* ═══ TITLE: the big name, hero buttons ══════════════════════════════════════
+   The name is split into <span class="ch"> letters at build time (--i = index).
+   Everything here is gated by html[data-motion="full"]; "reduced" shows static text.
+   1. load   letters rise out of their line, staggered
+   2. glint  a blue -> violet -> magenta wave runs across the letters every ~9s
+   3. near   letters lift and glow near the pointer (set by src/js/title.js) */
+
+.name-line .ch {
+  display: inline-block;
+  /* --near (0..1) is written by title.js; transform-free properties so they never fight the animations */
+  translate: 0 calc(var(--near, 0) * -0.09em);
+  text-shadow: 0 0 calc(var(--near, 0) * 0.45em) rgba(59, 109, 255, calc(var(--near, 0) * 0.95));
+  transition: translate 0.22s var(--ease), text-shadow 0.22s var(--ease);
+}
+
+html[data-motion="full"] .name-line .ch {
+  animation:
+    ch-rise 0.95s var(--ease) both,
+    ch-glint 9s linear infinite;
+  animation-delay:
+    calc(0.25s + var(--i) * 38ms),
+    calc(3.2s + var(--i) * 70ms);
+}
+
+@keyframes ch-rise {
+  from { transform: translateY(112%) skewY(7deg); opacity: 0; }
+  to   { transform: none; opacity: 1; }
+}
+@keyframes ch-glint {
+  0%, 11%, 100% { color: var(--fg); }
+  3%            { color: #a9c1ff; }
+  6%            { color: #c9a6ff; }
+  8.5%          { color: #ff9ccf; }
+}
+
+/* the line mask is only needed while the letters rise; afterwards letters may lift above it */
+.name-block.intro-done > .name-line { overflow: visible; }
+
+/* hero buttons */
+.hero-cta { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.hero-cta .btn { padding: 0.42rem 0.9rem; font-size: 0.72rem; }
+.btn-ghost { border-color: rgba(236, 236, 242, 0.3); }
+.btn-ghost:hover { border-color: var(--accent); }

@@ -158,11 +158,39 @@ def chips(items):
     return '        <ul class="chips">\n' + "\n".join(f"          <li>{esc(i)}</li>" for i in items) + "\n        </ul>"
 
 
+def chips_links(pairs):
+    """Chips that link to a skills group on the About page: [(label, href), ...]."""
+    return '        <ul class="chips chips-links">\n' + "\n".join(
+        f'          <li><a href="{href}">{esc(label)}</a></li>' for label, href in pairs) + "\n        </ul>"
+
+
 def crumb_trail(*parts):
     out = '<span class="role-prompt">~/</span>'
     segs = []
     for href, label in parts:
         segs.append(f'<a href="{href}">{esc(label)}</a>' if href else esc(label))
     return out + " / ".join(segs)
+
+
+# ─── structured data (schema.org JSON-LD) ───────────────────────────────────
+PERSON_ID = SITE + "/#person"
+
+
+def ld_script(obj):
+    return '\n  <script type="application/ld+json">\n' + json.dumps(obj, ensure_ascii=False, indent=2) + '\n  </script>'
+
+
+def breadcrumb_ld(*items):
+    """items: (name, path) pairs after Home, e.g. ("Work", "/work/")."""
+    trail = [("Home", "/")] + list(items)
+    return {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "name": n, "item": SITE + p} for i, (n, p) in enumerate(trail)]}
+
+
+def article_ld(title, desc, path):
+    return {"@context": "https://schema.org", "@type": "Article", "headline": title, "description": desc,
+            "url": SITE + path, "author": {"@id": PERSON_ID}, "inLanguage": "en",
+            "image": SITE + "/assets/img/cards/" + path.strip("/").split("/")[-1] + ".jpg",
+            "mainEntityOfPage": SITE + path}
 
 

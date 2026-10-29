@@ -13,6 +13,12 @@
         "Local LLMs (Ollama)",
         "AI agents & MCP",
         "AI coding assistants"
+      ],
+      "used_in": [
+        {
+          "label": "RocmineLabs",
+          "href": "/lab/"
+        }
       ]
     },
     {
@@ -40,6 +46,16 @@
         "Nutanix (HCI, Prism Element)",
         "Proxmox VE",
         "Infrastructure sizing & mock-ups"
+      ],
+      "used_in": [
+        {
+          "label": "Datacenter 3-Tier vs HCI",
+          "href": "/work/datacenter-hci/"
+        },
+        {
+          "label": "RocmineLabs",
+          "href": "/lab/"
+        }
       ]
     },
     {
@@ -53,6 +69,12 @@
         "Veeam Backup & Replication",
         "Snapshots",
         "Disaster recovery planning"
+      ],
+      "used_in": [
+        {
+          "label": "Datacenter 3-Tier vs HCI",
+          "href": "/work/datacenter-hci/"
+        }
       ]
     },
     {
@@ -69,6 +91,16 @@
         "Ethical-hacking basics",
         "Monitoring",
         "High availability"
+      ],
+      "used_in": [
+        {
+          "label": "Earthquake Tracker",
+          "href": "/work/earthquake-tracker/"
+        },
+        {
+          "label": "RocmineLabs",
+          "href": "/lab/"
+        }
       ]
     },
     {
@@ -84,6 +116,12 @@
         ".NET",
         "SQL (MySQL, PostgreSQL)",
         "MongoDB"
+      ],
+      "used_in": [
+        {
+          "label": "Earthquake Tracker",
+          "href": "/work/earthquake-tracker/"
+        }
       ]
     }
   ]

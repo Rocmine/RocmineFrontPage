@@ -51,20 +51,20 @@
     });
   }
 
-  /* ── Copy email (falls back to mailto) ───────────────────────────────── */
-  const emailBtn = document.getElementById('btn-email');
-  if (emailBtn) {
-    const email = emailBtn.dataset.email || 'amine.rochdi@rocmine.net';
-    emailBtn.addEventListener('click', async () => {
+  /* ── Copy email (footer button + hero button); falls back to mailto ──── */
+  document.querySelectorAll('[data-email]').forEach(el => {
+    const email = el.dataset.email || 'amine.rochdi@rocmine.net';
+    el.addEventListener('click', async e => {
+      e.preventDefault();
       try {
         await navigator.clipboard.writeText(email);
         showToast('✓ copied to clipboard');
-      } catch {
+      } catch (err) {
         window.location.href = `mailto:${email}`;
         showToast('opening mail client…');
       }
     });
-  }
+  });
 
   /* ── External link toasts ────────────────────────────────────────────── */
   ['btn-github', 'btn-linkedin'].forEach(id => {

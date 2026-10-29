@@ -3,7 +3,8 @@ import json
 
 from .config import SITE, EMAIL, esc, load
 from .svg import diagram_quake, diagram_dc, diagram_lab, hw_r630, hw_t5820
-from .layout import page, head_block, sec, points, chips, crumb_trail
+from .layout import (page, head_block, sec, points, chips, chips_links, crumb_trail, ld_script, breadcrumb_ld,
+                     article_ld, PERSON_ID)
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -11,6 +12,11 @@ from .layout import page, head_block, sec, points, chips, crumb_trail
 # ═══════════════════════════════════════════════════════════════════════════
 SITE_DATA = load("site")
 TICKER = SITE_DATA["ticker"]
+
+
+def letters(word, start):
+    """One span per letter (index --i drives the staggered title animation)."""
+    return "".join(f'<span class="ch" style="--i:{start + i}">{c}</span>' for i, c in enumerate(word))
 
 
 def home():
@@ -22,20 +28,23 @@ def home():
     stats = '\n        <span class="stat-sep" aria-hidden="true">·</span>\n'.join(
         f'        <span class="stat"><span class="stat-key">{esc(x["key"])}</span><span class="stat-val">{esc(x["val"])}</span></span>'
         for x in SITE_DATA["stats"])
-    jsonld = json.dumps({
-        "@context": "https://schema.org",
+    person = {
         "@type": "Person",
+        "@id": PERSON_ID,
         "name": "Rochdi Mohamed Amine",
         "alternateName": ["Mohamed Amine Rochdi", "ROCMINE"],
         "jobTitle": "AI, Cloud & Infrastructure Engineer",
         "url": SITE + "/",
         "email": "mailto:" + EMAIL,
-        "image": SITE + "/assets/img/brand/share-card.jpg",
+        "image": SITE + "/assets/img/cards/home.jpg",
         "address": {"@type": "PostalAddress", "addressCountry": "MA", "addressLocality": "Rabat"},
         "alumniOf": "École Marocaine des Sciences d'Ingénieur",
         "knowsAbout": ["Generative AI", "Cloud computing", "DevOps", "Datacenter infrastructure", "Virtualisation"],
         "sameAs": ["https://github.com/Rocmine", "https://linkedin.com/in/rocmine"],
-    }, ensure_ascii=False, indent=2)
+    }
+    website = {"@type": "WebSite", "@id": SITE + "/#website", "url": SITE + "/", "name": "ROCMINE",
+               "inLanguage": "en", "publisher": {"@id": PERSON_ID}}
+    graph = {"@context": "https://schema.org", "@graph": [person, website]}
     body = f'''  <main id="main" class="main-home">
 
     <div id="portrait-bg" aria-hidden="true"></div>
@@ -49,13 +58,18 @@ def home():
       </p>
 
       <div class="name-block rail" translate="no">
-        <span class="name-line reveal d-2" aria-hidden="true">ROCHDI</span>
-        <span class="name-line reveal d-3" aria-hidden="true">MOHAMED</span>
-        <span class="name-line reveal d-4" aria-hidden="true">AMINE</span>
+        <span class="name-line" aria-hidden="true">{letters("ROCHDI", 0)}</span>
+        <span class="name-line" aria-hidden="true">{letters("MOHAMED", 6)}</span>
+        <span class="name-line" aria-hidden="true">{letters("AMINE", 13)}</span>
         <p class="name-tagline reveal d-5">{SITE_DATA["tagline"]}</p>
       </div>
 
-      <ol class="specialties reveal d-6" aria-label="Areas of expertise">
+      <p class="hero-cta reveal d-6">
+        <a class="btn" href="/work/">See my work</a>
+        <a class="btn btn-ghost" id="cta-email" href="mailto:{EMAIL}" data-email="{EMAIL}">Email me</a>
+      </p>
+
+      <ol class="specialties reveal d-7" aria-label="Areas of expertise">
 {specialties}
       </ol>
 
@@ -79,7 +93,7 @@ def home():
     </p>
 
   </main>'''
-    extra = '\n  <script type="application/ld+json">\n' + jsonld + '\n  </script>'
+    extra = ld_script(graph)
     return page("/", "ROCMINE — Rochdi Mohamed Amine · AI, cloud & infrastructure engineer",
                 "Rochdi Mohamed Amine (ROCMINE): State Engineer in computer science and networks. Generative-AI applications, cloud & DevOps, and datacenter infrastructure. Based in Rabat, Morocco.",
                 body, home=True, extra_head=extra, body_class="page-home")
@@ -125,7 +139,14 @@ def work():
   </main>'''
     return page("/work/", "Work — ROCMINE",
                 "Selected projects by Rochdi Mohamed Amine: the Morocco Earthquake Tracker, a 3-Tier vs HCI datacenter study at CBI.MA, the RocmineLabs homelab, Safar AI and Metascope.",
-                body, active="work")
+                body, active="work", extra_head=ld_script(breadcrumb_ld(("Work", "/work/"))))
+
+
+SK_DEV, SK_SYS, SK_DC, SK_ST = ("/about/#skills-dev", "/about/#skills-systems", "/about/#skills-datacenter", "/about/#skills-storage")
+
+
+def case_ld(title, desc, path, name):
+    return ld_script(article_ld(title, desc, path)) + ld_script(breadcrumb_ld(("Work", "/work/"), (name, path)))
 
 
 def case_nav(label, href, name):
@@ -147,23 +168,24 @@ def quake():
         </div>
         <p class="diagram-note">Simplified request path. Two API instances are drawn to show the load-balancing layer.</p>''', wide=True)}
 
-{sec("What I built", points([
+{sec("Approach", points([
         "An <b>Express.js</b> back end exposing a REST API, backed by <b>MySQL / MariaDB</b>.",
         "<b>Nginx</b> as reverse proxy, load-balancing traffic across the application instances.",
         "<b>Cloudflare</b> in front of the origin for protection against abusive traffic.",
         "Self-hosting on <a href=\"/lab/\">RocmineLabs</a>, my homelab: Dell enterprise servers running Proxmox VE.",
     ]))}
 
-{sec("Stack", chips(["Express.js", "REST API", "Nginx", "Load balancing", "Cloudflare", "MySQL", "MariaDB", "Proxmox VE", "Linux"]))}
+{sec("Skills used", chips_links([("Express.js", SK_DEV), ("REST API", SK_DEV), ("Nginx", SK_SYS), ("Load balancing", SK_SYS), ("Cloudflare", SK_SYS), ("MySQL", SK_DEV), ("MariaDB", SK_DEV), ("Proxmox VE", SK_DC), ("Linux", SK_SYS)]))}
 
-{sec("Outcome", '        <p class="lead-p">More than 10 million visits, served from a home datacenter with no interruption.</p>')}
+{sec("Result", '        <p class="lead-p">More than 10 million visits, served from a home datacenter with no interruption.</p>')}
 
 {case_nav("Next project", "/work/datacenter-hci/", "Datacenter: 3-Tier vs HCI")}
 
   </main>'''
     return page("/work/earthquake-tracker/", "Morocco Earthquake Tracker — ROCMINE",
                 "Case study: a public earthquake tracker for Morocco on Express.js, Nginx load balancing and Cloudflare, self-hosted on a Proxmox homelab, with more than 10 million visits.",
-                body, active="work", og_type="article")
+                body, active="work", og_type="article",
+                extra_head=case_ld("Morocco Earthquake Tracker", "Case study: a public earthquake tracker for Morocco, self-hosted with Nginx load balancing and Cloudflare, with more than 10 million visits.", "/work/earthquake-tracker/", "Morocco Earthquake Tracker"))
 
 
 def datacenter():
@@ -173,7 +195,7 @@ def datacenter():
             "My final-year project at CBI.MA: two ways to build a datacenter, compared on a working mock-up with data protection on top.",
             long=True, meta=[("Where", "CBI.MA"), ("When", "2025 – 2026"), ("School", "EMSI, Rabat")])}
 
-{sec("Context", '''        <div class="prose">
+{sec("Problem", '''        <div class="prose">
           <p>CBI.MA is an integrator specialised in datacenter, cloud and cybersecurity infrastructure: 55 years in business, 300+ people, 13 African countries.</p>
           <p>The question: should a customer build on the classic 3-Tier architecture (separate compute, network and storage) or on hyperconverged infrastructure (HCI), where the same nodes provide both? I built both and measured them.</p>
         </div>''')}
@@ -183,7 +205,7 @@ def datacenter():
         </div>
         <p class="diagram-note">Simplified view of the two mock-ups and the shared backup layer.</p>''', wide=True)}
 
-{sec("What I built", points([
+{sec("Approach", points([
         "A <b>3-Tier mock-up</b>: VMware ESXi 8.0 hypervisor, with SAN/NAS storage on TrueNAS Core (ZFS pool in RAID-Z1, iSCSI and NFS LUNs).",
         "A <b>hyperconverged architecture</b> on Nutanix Community Edition, managed through a Prism Element cluster.",
         "<b>Data protection</b> with Veeam Backup &amp; Replication: full and incremental backups, restores, and native Nutanix AOS snapshots.",
@@ -191,16 +213,17 @@ def datacenter():
         "A <b>5-year TCO analysis</b>, and architecture recommendations presented to the CBI.MA teams.",
     ]))}
 
-{sec("Stack", chips(["VMware ESXi 8.0", "vSphere", "TrueNAS Core", "ZFS RAID-Z1", "iSCSI", "NFS", "Nutanix CE", "Prism Element", "Nutanix AOS", "Veeam Backup & Replication"]))}
+{sec("Skills used", chips_links([("VMware ESXi 8.0", SK_DC), ("vSphere", SK_DC), ("TrueNAS Core", SK_ST), ("ZFS RAID-Z1", SK_ST), ("iSCSI", SK_ST), ("NFS", SK_ST), ("Nutanix CE", SK_DC), ("Prism Element", SK_DC), ("Nutanix AOS", SK_DC), ("Veeam Backup & Replication", SK_ST)]))}
 
-{sec("Outcome", '        <p class="lead-p">Recommendations delivered to CBI.MA, backed by benchmark results and a 5-year cost comparison.</p>')}
+{sec("Result", '        <p class="lead-p">Recommendations delivered to CBI.MA, backed by benchmark results and a 5-year cost comparison.</p>')}
 
 {case_nav("Next", "/lab/", "RocmineLabs")}
 
   </main>'''
     return page("/work/datacenter-hci/", "Datacenter: 3-Tier vs HCI — ROCMINE",
                 "Case study: final-year project at CBI.MA comparing 3-Tier (VMware ESXi, TrueNAS) and hyperconverged (Nutanix) datacenter architectures with Veeam data protection, benchmarks and 5-year TCO.",
-                body, active="work", og_type="article")
+                body, active="work", og_type="article",
+                extra_head=case_ld("Datacenter: 3-Tier vs HCI", "Final-year project at CBI.MA comparing 3-Tier and hyperconverged datacenter architectures.", "/work/datacenter-hci/", "Datacenter: 3-Tier vs HCI"))
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -246,7 +269,7 @@ def lab():
   </main>'''
     return page("/lab/", "RocmineLabs — ROCMINE",
                 "RocmineLabs: a home datacenter with Dell PowerEdge R630 and Precision T5820 servers running Proxmox VE, Nginx, Cloudflare, local LLMs with Ollama and MCP agents.",
-                body, active="lab")
+                body, active="lab", extra_head=ld_script(breadcrumb_ld(("Lab", "/lab/"))))
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -268,10 +291,14 @@ def tl(num, date, role, org, bullets=None, link=None):
           </li>'''
 
 
-def skill_group(sid, name, items):
+def skill_group(sid, name, items, used_in=None):
+    used = ""
+    if used_in:
+        links = " · ".join(f'<a href="{u["href"]}">{esc(u["label"])}</a>' for u in used_in)
+        used = f'\n          <p class="used-in">Used in: {links}</p>'
     return f'''        <div class="skill-group" id="{sid}">
           <h3>{esc(name)}</h3>
-{chips(items)}
+{chips(items)}{used}
         </div>'''
 
 
@@ -282,7 +309,7 @@ def about():
         for x in load("experience")["items"]) + "\n        </ol>"
 
     skills = '        <div class="skill-groups">\n' + "\n".join(
-        skill_group(g["id"], g["name"], g["items"]) for g in load("skills")["groups"]) + "\n        </div>"
+        skill_group(g["id"], g["name"], g["items"], g.get("used_in")) for g in load("skills")["groups"]) + "\n        </div>"
 
     certs = '''        <ul class="dl-simple">
           <li>Meta <span>React Basics / Native</span></li>
@@ -337,7 +364,12 @@ def about():
   </main>'''
     return page("/about/", "About — ROCMINE",
                 "Rochdi Mohamed Amine: State Engineer in computer science and networks (EMSI Rabat, 2026). Experience at CBI.MA, CEDAMUS IT and the Trésorerie Générale du Royaume; skills in generative AI, cloud, DevOps and datacenter infrastructure.",
-                body, active="about")
+                body, active="about", extra_head=ld_script({
+                    "@context": "https://schema.org", "@type": "ProfilePage", "url": SITE + "/about/", "name": "About",
+                    "mainEntity": {"@type": "Person", "@id": PERSON_ID, "name": "Rochdi Mohamed Amine",
+                                   "jobTitle": "AI, Cloud & Infrastructure Engineer",
+                                   "sameAs": ["https://github.com/Rocmine", "https://linkedin.com/in/rocmine"]}}) +
+                    ld_script(breadcrumb_ld(("About", "/about/"))))
 
 
 # ═══════════════════════════════════════════════════════════════════════════

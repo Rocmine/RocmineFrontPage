@@ -30,37 +30,52 @@
 
   <link rel="preload" href="/assets/fonts/Unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/assets/fonts/JetBrainsMono-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="/assets/css/main.css?v=3c058b47" />
+  <link rel="stylesheet" href="/assets/css/main.css?v=9d6b469d" />
   <script>(function(d){d.classList.add('js');try{d.dataset.motion=localStorage.getItem('rocmine-motion')==='off'?'reduced':'full'}catch(e){d.dataset.motion='full'}})(document.documentElement)</script>
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Rochdi Mohamed Amine",
-  "alternateName": [
-    "Mohamed Amine Rochdi",
-    "ROCMINE"
-  ],
-  "jobTitle": "AI, Cloud & Infrastructure Engineer",
-  "url": "https://rocmine.net/",
-  "email": "mailto:amine.rochdi@rocmine.net",
-  "image": "https://rocmine.net/assets/img/brand/share-card.jpg",
-  "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "MA",
-    "addressLocality": "Rabat"
-  },
-  "alumniOf": "École Marocaine des Sciences d'Ingénieur",
-  "knowsAbout": [
-    "Generative AI",
-    "Cloud computing",
-    "DevOps",
-    "Datacenter infrastructure",
-    "Virtualisation"
-  ],
-  "sameAs": [
-    "https://github.com/Rocmine",
-    "https://linkedin.com/in/rocmine"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://rocmine.net/#person",
+      "name": "Rochdi Mohamed Amine",
+      "alternateName": [
+        "Mohamed Amine Rochdi",
+        "ROCMINE"
+      ],
+      "jobTitle": "AI, Cloud & Infrastructure Engineer",
+      "url": "https://rocmine.net/",
+      "email": "mailto:amine.rochdi@rocmine.net",
+      "image": "https://rocmine.net/assets/img/cards/home.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "MA",
+        "addressLocality": "Rabat"
+      },
+      "alumniOf": "École Marocaine des Sciences d'Ingénieur",
+      "knowsAbout": [
+        "Generative AI",
+        "Cloud computing",
+        "DevOps",
+        "Datacenter infrastructure",
+        "Virtualisation"
+      ],
+      "sameAs": [
+        "https://github.com/Rocmine",
+        "https://linkedin.com/in/rocmine"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://rocmine.net/#website",
+      "url": "https://rocmine.net/",
+      "name": "ROCMINE",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://rocmine.net/#person"
+      }
+    }
   ]
 }
   </script>
@@ -97,13 +112,18 @@
       </p>
 
       <div class="name-block rail" translate="no">
-        <span class="name-line reveal d-2" aria-hidden="true">ROCHDI</span>
-        <span class="name-line reveal d-3" aria-hidden="true">MOHAMED</span>
-        <span class="name-line reveal d-4" aria-hidden="true">AMINE</span>
+        <span class="name-line" aria-hidden="true"><span class="ch" style="--i:0">R</span><span class="ch" style="--i:1">O</span><span class="ch" style="--i:2">C</span><span class="ch" style="--i:3">H</span><span class="ch" style="--i:4">D</span><span class="ch" style="--i:5">I</span></span>
+        <span class="name-line" aria-hidden="true"><span class="ch" style="--i:6">M</span><span class="ch" style="--i:7">O</span><span class="ch" style="--i:8">H</span><span class="ch" style="--i:9">A</span><span class="ch" style="--i:10">M</span><span class="ch" style="--i:11">E</span><span class="ch" style="--i:12">D</span></span>
+        <span class="name-line" aria-hidden="true"><span class="ch" style="--i:13">A</span><span class="ch" style="--i:14">M</span><span class="ch" style="--i:15">I</span><span class="ch" style="--i:16">N</span><span class="ch" style="--i:17">E</span></span>
         <p class="name-tagline reveal d-5">I build LLM applications, and the cloud and infrastructure that carries them to production.</p>
       </div>
 
-      <ol class="specialties reveal d-6" aria-label="Areas of expertise">
+      <p class="hero-cta reveal d-6">
+        <a class="btn" href="/work/">See my work</a>
+        <a class="btn btn-ghost" id="cta-email" href="mailto:amine.rochdi@rocmine.net" data-email="amine.rochdi@rocmine.net">Email me</a>
+      </p>
+
+      <ol class="specialties reveal d-7" aria-label="Areas of expertise">
         <li><a href="/about/#skills-ai"><span class="spec-num">01</span>AI</a></li>
         <li><a href="/about/#skills-cloud"><span class="spec-num">02</span>Cloud</a></li>
         <li><a href="/about/#skills-datacenter"><span class="spec-num">03</span>Infrastructure</a></li>
@@ -156,6 +176,6 @@
 
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<script src="/assets/js/main.js?v=4ac6608a" defer></script>
+<script src="/assets/js/main.js?v=2b7396bf" defer></script>
 </body>
 </html>
