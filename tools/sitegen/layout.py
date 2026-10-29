@@ -55,7 +55,10 @@ def footer(home=False):
 
 def page(path, title, desc, body, active=None, home=False, extra_head="", body_class="", og_type="website", noindex=False):
     url = SITE + path
-    og = f"{SITE}/assets/img/brand/share-card.jpg"
+    slug = "home" if path in ("/", "/404.html") else path.strip("/").split("/")[-1]
+    og = f"{SITE}/assets/img/cards/{slug}.jpg"
+    og_alt = f"{title}"
+    v = config.VERSION
     robots = '\n  <meta name="robots" content="noindex" />' if noindex else ""
     return f'''<!DOCTYPE html>
 <html lang="en">
@@ -74,15 +77,22 @@ def page(path, title, desc, body, active=None, home=False, extra_head="", body_c
   <meta property="og:description" content="{esc(desc)}" />
   <meta property="og:url" content="{url}" />
   <meta property="og:image" content="{og}" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="{esc(og_alt)}" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{esc(title)}" />
+  <meta name="twitter:description" content="{esc(desc)}" />
+  <meta name="twitter:image" content="{og}" />
 
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/assets/img/brand/favicon-32.png" type="image/png" sizes="32x32" />
   <link rel="apple-touch-icon" href="/assets/img/brand/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/main.css" />
+  <link rel="preload" href="/assets/fonts/Unbounded-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/JetBrainsMono-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="/assets/css/main.css?v={v['css']}" />
   {MOTION_SCRIPT}{extra_head}
 </head>
 <body class="{body_class}">
@@ -102,7 +112,7 @@ def page(path, title, desc, body, active=None, home=False, extra_head="", body_c
 
 <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
-<script src="/assets/js/main.js"></script>
+<script src="/assets/js/main.js?v={v['js']}" defer></script>
 </body>
 </html>
 '''

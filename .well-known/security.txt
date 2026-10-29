@@ -1,0 +1,4 @@
+Contact: mailto:amine.rochdi@rocmine.net
+Expires: 2027-10-29T00:00:00.000Z
+Preferred-Languages: en, fr, ar
+Canonical: https://rocmine.net/.well-known/security.txt

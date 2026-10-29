@@ -9,3 +9,7 @@ exclude:
   - package-lock.json
   - README.md
   - .editorconfig
+
+# dot-folders are skipped by default; security.txt must be published
+include:
+  - .well-known

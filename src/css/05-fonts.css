@@ -1,0 +1,17 @@
+/* ─── FONTS (self-hosted, latin subset, variable) ───────────────────────────
+   Files live in assets/fonts/. Both are SIL Open Font License 1.1. */
+@font-face {
+  font-family: 'Unbounded';
+  src: url('/assets/fonts/Unbounded-latin.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/assets/fonts/JetBrainsMono-latin.woff2') format('woff2');
+  font-weight: 400 700;
+  font-style: normal;
+  font-display: swap;
+}
+
