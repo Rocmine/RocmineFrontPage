@@ -13,7 +13,7 @@
   .btn { min-height: 44px; }
   .chips-links a { padding-block: 0.95rem; }
   .other-list a { padding-block: 0.95rem; }
-  .kv dd a { padding-block: 0.95rem; }
+  .kv dd a, .used-in a, .dl-simple a { padding-block: 0.95rem; }
   .crumb a { padding-block: 0.95rem; }
   .skip { padding: 0.9rem 1rem; }
 }

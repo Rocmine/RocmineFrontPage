@@ -1,0 +1,129 @@
+{
+  "_note": "Stack page. Every item comes from the GitHub profile README, a public repo, or the CV. Items in _confirm rest on local files only; check them.",
+  "_confirm": [
+    "Windows 11",
+    "WSL (Ubuntu)",
+    "VS Code",
+    "StreamElements widgets",
+    "Blender"
+  ],
+  "lede": "What I build with, and what runs my homelab.",
+  "groups": [
+    {
+      "name": "Daily driver",
+      "items": [
+        "Windows 11",
+        "WSL (Ubuntu)",
+        "PowerShell",
+        "Oh My Posh",
+        "Git & GitHub",
+        "VS Code",
+        "Claude Code"
+      ]
+    },
+    {
+      "name": "Homelab",
+      "items": [
+        "Dell PowerEdge R630",
+        "Dell Precision T5820",
+        "Proxmox VE",
+        "Docker",
+        "Portainer",
+        "Nginx",
+        "Cloudflare",
+        "Ollama",
+        "Game servers: Minecraft, CS2, FiveM"
+      ],
+      "link": {
+        "label": "See RocmineLabs",
+        "href": "/lab/"
+      }
+    },
+    {
+      "name": "Languages",
+      "items": [
+        "Python",
+        "JavaScript",
+        "C",
+        "C++",
+        "C#",
+        "Java",
+        ".NET",
+        "PowerShell",
+        "Bash",
+        "SQL"
+      ]
+    },
+    {
+      "name": "Frontend",
+      "items": [
+        "React",
+        "Next.js",
+        "Vite",
+        "Flutter",
+        "HTML5",
+        "CSS3",
+        "Tailwind CSS"
+      ]
+    },
+    {
+      "name": "Backend & data",
+      "items": [
+        "FastAPI",
+        "Flask",
+        "Express.js",
+        ".NET Core",
+        "PostgreSQL",
+        "MySQL",
+        "MariaDB",
+        "MongoDB",
+        "Redis"
+      ]
+    },
+    {
+      "name": "Cloud & DevOps",
+      "items": [
+        "Docker",
+        "Kubernetes",
+        "AWS",
+        "GCP",
+        "Azure",
+        "Terraform",
+        "Ansible",
+        "GitHub Actions",
+        "GitLab CI"
+      ]
+    },
+    {
+      "name": "AI",
+      "items": [
+        "OpenAI, Claude and Mistral APIs",
+        "RAG",
+        "LangChain",
+        "LlamaIndex",
+        "Chroma",
+        "Ollama",
+        "MCP",
+        "Claude Code"
+      ]
+    },
+    {
+      "name": "Linux",
+      "items": [
+        "Debian",
+        "Ubuntu",
+        "Arch",
+        "Alpine"
+      ]
+    },
+    {
+      "name": "Streaming & design",
+      "items": [
+        "StreamElements widgets",
+        "Blender",
+        "Video editing & animation",
+        "Discord theming (Vencord)"
+      ]
+    }
+  ]
+}

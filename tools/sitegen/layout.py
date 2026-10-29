@@ -13,7 +13,7 @@ MOTION_SCRIPT = ("<script>(function(d){d.classList.add('js');try{d.dataset.motio
                  "localStorage.getItem('rocmine-motion')==='off'?'reduced':'full'}"
                  "catch(e){d.dataset.motion='full'}})(document.documentElement)</script>")
 
-NAV = [("work", "~/work"), ("lab", "~/lab"), ("about", "~/about")]
+NAV = [("work", "~/work"), ("lab", "~/lab"), ("stack", "~/stack"), ("about", "~/about")]
 
 
 def header(active, home=False):

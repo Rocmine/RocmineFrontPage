@@ -373,6 +373,46 @@ def about():
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  STACK
+# ═══════════════════════════════════════════════════════════════════════════
+def stack():
+    data = load("stack")
+    gh = load("github")
+    groups = []
+    for g in data["groups"]:
+        inner = chips(g["items"])
+        if g.get("link"):
+            inner += f'{chr(10)}        <p class="used-in"><a href="{g["link"]["href"]}">{esc(g["link"]["label"])}</a></p>'
+        groups.append(sec(g["name"], inner))
+    langs = " · ".join(esc(l["name"]) for l in gh["languages"])
+    recent = "".join(
+        f'{chr(10)}          <li><a href="{r["url"]}" target="_blank" rel="noopener noreferrer">{esc(r["name"])}</a>'
+        f'<span>{esc(r["language"] or "no language")} · {esc(r["pushed"])}</span></li>' for r in gh["recent"])
+    github = f'''        <dl class="kv">
+          <dt>Account</dt><dd><a href="https://github.com/{gh["login"]}" target="_blank" rel="noopener noreferrer">github.com/{esc(gh["login"])}</a>, since {gh["since"]}</dd>
+          <dt>Repos</dt><dd>{gh["public_repos"]} public ({gh["own_repos"]} of my own, {gh["forks"]} forks)</dd>
+          <dt>Languages</dt><dd>{langs}</dd>
+        </dl>
+        <ul class="dl-simple">{recent}
+        </ul>
+        <p class="diagram-note">Snapshot from the public GitHub API, {esc(gh["fetched"])}.</p>'''
+    body = f'''  <main id="main" class="page">
+
+{head_block(crumb_trail((None, "stack")), "Stack", data["lede"])}
+
+{chr(10).join(groups)}
+
+{sec("On GitHub", github)}
+
+{case_nav("Next", "/about/", "About me")}
+
+  </main>'''
+    return page("/stack/", "Stack — ROCMINE",
+                "The languages, tools and hardware behind Rochdi Mohamed Amine's work: AI, cloud, DevOps, Linux and a Proxmox homelab.",
+                body, active="stack", extra_head=ld_script(breadcrumb_ld(("Stack", "/stack/"))))
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 #  404
 # ═══════════════════════════════════════════════════════════════════════════
 def notfound():
@@ -384,6 +424,8 @@ def notfound():
       <p class="nf-links reveal d-4">
         <a class="link-btn" href="/">home</a>
         <a class="link-btn" href="/work/">work</a>
+        <a class="link-btn" href="/lab/">lab</a>
+        <a class="link-btn" href="/stack/">stack</a>
         <a class="link-btn" href="/about/">about</a>
       </p>
     </div>

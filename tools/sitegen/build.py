@@ -20,6 +20,7 @@ PAGES = [
     ("work/earthquake-tracker/index.html", pages.quake, "/work/earthquake-tracker/"),
     ("work/datacenter-hci/index.html", pages.datacenter, "/work/datacenter-hci/"),
     ("lab/index.html", pages.lab, "/lab/"),
+    ("stack/index.html", pages.stack, "/stack/"),
     ("about/index.html", pages.about, "/about/"),
     ("404.html", pages.notfound, None),
 ]
