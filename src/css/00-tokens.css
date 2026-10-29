@@ -1,0 +1,20 @@
+/* ─── ROCMINE Portfolio ─ Editorial / Swiss ──────────────────────────────
+   Sections: tokens · reset · frame · home · inner pages · work · case study ·
+   diagrams · lab · about · 404 · motion · responsive
+   ──────────────────────────────────────────────────────────────────────── */
+
+/* ─── TOKENS ─────────────────────────────────────────────────────────────── */
+:root {
+  --bg:       #06060f;
+  --fg:       #ececf2;
+  --accent:   #3b6dff;
+  --accent-2: #8a4dff;   /* violet, sampled from the logo */
+  --accent-3: #ee1681;   /* magenta, sampled from the logo */
+  --muted:    rgba(236,236,242,0.58);
+  --dim:      rgba(236,236,242,0.36);
+  --rule:     rgba(236,236,242,0.09);
+  --body:     rgba(236,236,242,0.76);
+  --pad:      clamp(1.25rem, 3.5vw, 2.75rem);
+  --ease:     cubic-bezier(0.22, 1, 0.36, 1);
+}
+

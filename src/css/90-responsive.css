@@ -1,0 +1,70 @@
+/* ─── VIEW TRANSITIONS ───────────────────────────────────────────────────── */
+@view-transition { navigation: auto; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: 0.22s; }
+
+/* ═══ RESPONSIVE ═════════════════════════════════════════════════════════ */
+@media (max-height: 560px) {
+  body.page-home { overflow-y: auto; height: auto; }
+  body.page-home #grid { height: auto; min-height: 100dvh; overflow: visible; }
+  .main-home { overflow: visible; }
+}
+
+@media (min-width: 1600px) {
+  .name-line   { font-size: clamp(3rem, 7vw, 11rem); }
+  #portrait-bg { width: 48%; }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  :root { --pad: clamp(1.25rem, 2.5vw, 2rem); }
+  .name-line   { font-size: clamp(3rem, 9vw, 8rem); }
+  #edge-label  { display: none; }
+  .name-stats  { gap: 0.7rem; }
+}
+
+@media (max-width: 860px) {
+  .diagram-wrap::after { content: 'swipe to pan'; display: block; margin-top: 0.5rem; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--dim); }
+  .hw-item .diagram-wrap::after { content: none; }
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+  .hw-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  #grid { padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left)); }
+  #edge-label { display: none; }
+  .name-stats { gap: 0.55rem; }
+  .name-line { font-size: clamp(2.1rem, 11.5vw, 4.2rem); }
+  .name-tagline { font-size: 0.66rem; line-height: 1.55; margin-top: 0.55rem; }
+  .role-line { white-space: normal; }
+
+  #header { flex-wrap: wrap; row-gap: 0.7rem; }
+  .site-nav { order: 3; width: 100%; margin-left: 0; gap: 1.4rem; }
+  .site-nav a { padding: 0.5rem 0; }
+
+  #footer { flex-direction: column; align-items: flex-start; gap: 0.25rem; padding-top: 0.55rem; }
+  .footer-right { align-self: flex-end; }
+  .link-btn { padding: 0.3rem 0; min-height: 2rem; display: inline-flex; align-items: center; }
+
+  .work-link { grid-template-columns: 2rem minmax(0, 1fr) 1.2rem; }
+  .w-meta { grid-column: 2; grid-row: 2; text-align: left; margin-top: 0.5rem; }
+  .w-arrow { grid-column: 3; grid-row: 1; }
+  .w-thumb { grid-row: 3; }
+
+  .timeline > li { grid-template-columns: 2rem minmax(0, 1fr); }
+  .tl-date { grid-column: 2; order: 3; margin-top: 0.35rem; }
+  .tl-main { grid-column: 2; }
+  .kv { grid-template-columns: 1fr; gap: 0.1rem; }
+  .kv dd { margin-bottom: 0.7rem; }
+}
+
+/* Portrait photo becomes a band above the name on phones and on portrait tablets,
+   where a narrow side strip would crop the face out. */
+@media (max-width: 640px), (max-width: 1023px) and (orientation: portrait) {
+  #portrait-bg {
+    left: 0; right: 0; bottom: auto; margin-inline: auto; width: min(100%, 36vh); height: 30vh;
+    background-size: auto 100%; background-position: center top;
+    -webkit-mask-image: none; mask-image: none;
+  }
+  .left-col { padding-top: 28vh; }
+  #edge-label { display: none; }
+}
+

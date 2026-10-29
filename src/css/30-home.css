@@ -1,0 +1,127 @@
+/* ═══ HOME ═══════════════════════════════════════════════════════════════ */
+body.page-home { overflow: hidden; height: 100dvh; }
+body.page-home #grid { height: 100vh; height: 100dvh; overflow: hidden; }
+
+.main-home {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  padding-top:    clamp(0.5rem, 2vh, 1.5rem);
+  padding-bottom: clamp(0.4rem, 1.5vh, 1.2rem);
+}
+
+#portrait-bg {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 46%;
+  z-index: 0;
+  background-image: url('/assets/img/portrait/portrait.png');
+  background-size: auto 90%;
+  background-position: center top;      /* face sits in the middle of the panel */
+  background-repeat: no-repeat;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 40%);
+  mask-image:         linear-gradient(to right, transparent 0%, black 40%);
+  opacity: 0.28;                         /* blends the photo into the navy page */
+  pointer-events: none;
+  user-select: none;
+  animation: portrait-in 1.8s ease-out 0.6s both;
+}
+@keyframes portrait-in {
+  from { opacity: 0; transform: translateX(18px); }
+  to   { opacity: 0.28; transform: translateX(0); }
+}
+
+#edge-label {
+  position: absolute; right: 0; top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  font-size: 0.52rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(236,236,242,0.14);
+  user-select: none; pointer-events: none;
+  z-index: 2;
+}
+
+.left-col {
+  grid-column: 1; grid-row: 1;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: clamp(0.6rem, 1.8vh, 1.3rem);
+  z-index: 1;
+  min-height: 0;
+}
+
+.name-block { line-height: 0.88; }
+.name-block span { display: block; overflow: hidden; }
+.name-line {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 7.6vw, 9.5rem);
+  letter-spacing: -0.04em;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.name-tagline {
+  font-size: clamp(0.68rem, 1.05vw, 0.82rem);
+  color: var(--muted);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  margin-top: clamp(0.7rem, 1.8vh, 1.2rem);
+  max-width: 52ch;
+}
+
+.specialties {
+  display: flex; flex-wrap: wrap;
+  gap: 0 clamp(1rem, 2.2vw, 2rem);
+  padding-top: clamp(0.5rem, 1.5vh, 0.9rem);
+  border-top: 1px solid var(--rule);
+}
+.specialties a {
+  display: flex; align-items: baseline; gap: 0.3rem;
+  font-size: clamp(0.68rem, 1.05vw, 0.78rem);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.16s;
+}
+.specialties a:hover { color: var(--fg); }
+.spec-num { color: var(--accent); font-size: 0.58rem; letter-spacing: 0.1em; }
+
+.name-stats {
+  display: flex; align-items: flex-start; flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.4vw, 1.1rem);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(0.4rem, 1.1vh, 0.65rem);
+}
+.stat { display: flex; flex-direction: column; gap: 0.15rem; }
+.stat-key { font-size: 0.56rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--dim); }
+.stat-val {
+  font-size: clamp(0.6rem, 0.9vw, 0.7rem);
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); font-weight: 600;
+}
+.stat-sep { color: var(--rule); font-size: 0.75rem; align-self: flex-end; flex-shrink: 0; }
+
+.stack-ticker {
+  grid-column: 1 / -1; grid-row: 2;
+  display: flex; align-items: baseline; gap: 0.6em;
+  font-size: clamp(0.58rem, 0.85vw, 0.66rem);
+  letter-spacing: 0.18em;
+  color: var(--dim);
+  text-transform: uppercase;
+  padding-top: clamp(0.35rem, 1vh, 0.65rem);
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 1;
+}
+.ticker-label { color: var(--accent); letter-spacing: 0.22em; flex-shrink: 0; }
+.ticker-rule  { color: var(--rule); flex-shrink: 0; letter-spacing: 0; }
+.ticker-body  { flex: 1 1 0; min-width: 0; overflow: hidden; }
+.ticker-run   { display: inline-flex; animation: ticker-scroll 46s linear infinite; }
+.ticker-body:hover .ticker-run { animation-play-state: paused; }
+.ticker-items { white-space: nowrap; padding-right: 4em; }
+@keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+

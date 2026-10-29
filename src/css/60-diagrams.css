@@ -1,0 +1,27 @@
+/* ═══ DIAGRAMS (inline SVG, drawn once on view) ══════════════════════════ */
+.diagram-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; padding-bottom: 0.4rem; }
+.diagram { width: 100%; min-width: 820px; height: auto; overflow: visible; }
+.diagram .node { fill: rgba(236,236,242,0.02); stroke: rgba(236,236,242,0.34); stroke-width: 1; }
+.diagram .node.core { stroke: var(--accent); stroke-width: 1.4; }
+.diagram .node.hot  { stroke: var(--accent-3); }
+.diagram .encl { fill: none; stroke: rgba(236,236,242,0.2); stroke-width: 1; stroke-dasharray: 4 5; }
+.diagram .wire { fill: none; stroke: var(--accent); stroke-width: 1.2; }
+.diagram .wire.hot { stroke: var(--accent-2); }
+.diagram .dot  { fill: var(--accent); }
+.diagram text { font-family: 'JetBrains Mono', monospace; fill: rgba(236,236,242,0.78); font-size: 12.5px; letter-spacing: 0.02em; }
+.diagram text.sub { fill: rgba(236,236,242,0.5); font-size: 10.5px; }
+.diagram text.cap { fill: rgba(236,236,242,0.42); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+.diagram text.head { fill: var(--fg); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+.js .diagram .draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+.js .diagram.in .draw { animation: draw 1.5s var(--ease) forwards; animation-delay: var(--d, 0s); }
+.js .diagram .fade { opacity: 0; }
+.js .diagram.in .fade { animation: fade-in 0.7s ease forwards; animation-delay: var(--d, 0.4s); }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fade-in { to { opacity: 1; } }
+.diagram.hw { min-width: 0; }
+.hw-tower { max-width: 11rem; }
+.lead-p { max-width: 64ch; font-size: 0.82rem; line-height: 1.8; color: var(--body); }
+.lead-p.muted { color: var(--muted); font-size: 0.78rem; margin-top: 1.2rem; }
+.diagram-note { margin-top: 0.8rem; font-size: 0.66rem; letter-spacing: 0.06em; color: var(--dim); }
+

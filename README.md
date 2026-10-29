@@ -1,29 +1,30 @@
 # RocmineFrontPage
 
-Source of [rocmine.net](https://rocmine.net): a small static portfolio (plain HTML, CSS and JS) served by GitHub Pages.
+Source of [rocmine.net](https://rocmine.net): a small static portfolio served by GitHub Pages.
+
+The site is plain HTML, CSS and JS. The pages are generated from `src/` by a small Python script, and the **generated files are committed**, so GitHub Pages needs no build step.
 
 ```
-index.html  404.html  robots.txt  sitemap.xml  CNAME  _config.yml
-about/  lab/  work/            pages (generated, see below)
-assets/
-  css/main.css                 all styles
-  js/main.js                   year, toast, email copy, typewriter, diagrams, motion switch
-  img/brand/                   favicons, share card, logo poster
-  img/portrait/                portrait for the home page (plain, unprocessed)
-  img/work/                    thumbnails for the work list
-  cursor/                      custom cursor
-  video/                       header logo (webm + mp4)
-source/                        originals the assets are derived from (not published)
-tools/                         build_pages.py, make_assets.py (not published)
+src/            sources: content (JSON), css partials, js
+tools/          build.py (generator), make_assets.py, fetch_github.py, check.py, qa/
+originals/      masters the images and video are derived from (not published)
+docs/           architecture, content guide, testing guide
+-- generated and committed (do not edit by hand) --
+index.html  404.html  about/ lab/ work/  assets/css/main.css  assets/js/main.js  sitemap.xml  robots.txt
+-- static assets --
+assets/img  assets/video  assets/cursor
 ```
 
-## Editing
+## Everyday commands
 
-- **Text and layout of pages:** edit `tools/build_pages.py`, then run `python tools/build_pages.py`. It rewrites the HTML pages, `sitemap.xml` and `robots.txt`.
-- **Styles and behaviour:** edit `assets/css/main.css` and `assets/js/main.js` directly.
-- **Derived images and video:** `python tools/make_assets.py` rebuilds the logo video, favicons, share card from `source/` and copies the portrait (needs Pillow and ffmpeg; set `FFMPEG` if it is not on PATH).
-- **Preview:** `python -m http.server 8080` from the repo root (pages use root-absolute paths), then open http://localhost:8080.
+```bash
+python tools/build.py            # regenerate the site from src/
+python tools/build.py --serve    # build, then preview on http://localhost:8080
+python tools/build.py --check    # fail if the committed output is out of date (also run by CI)
+```
+
+Edit text in `src/content/*.json`, styles in `src/css/`, behaviour in `src/js/`, then rebuild. See `docs/` for details.
 
 ## Animation
 
-Animations are on by default and ignore the OS "show animations" setting. The `motion: on/off` switch in the footer turns them off and remembers the choice (`localStorage`, key `rocmine-motion`).
+Animations are on by default and ignore the OS "show animations" setting. The `motion: on/off` switch in the footer turns them off and remembers the choice (`localStorage` key `rocmine-motion`).

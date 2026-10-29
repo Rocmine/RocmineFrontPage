@@ -1,0 +1,90 @@
+{
+  "groups": [
+    {
+      "id": "skills-ai",
+      "name": "Generative AI & agents",
+      "items": [
+        "LLM APIs: OpenAI, Claude, Mistral",
+        "Prompt engineering",
+        "RAG",
+        "LangChain",
+        "LlamaIndex",
+        "Vector databases (Chroma)",
+        "Local LLMs (Ollama)",
+        "AI agents & MCP",
+        "AI coding assistants"
+      ]
+    },
+    {
+      "id": "skills-cloud",
+      "name": "Cloud & DevOps",
+      "items": [
+        "GCP",
+        "AWS",
+        "Azure",
+        "Docker",
+        "Kubernetes",
+        "Terraform",
+        "Ansible",
+        "GitHub Actions",
+        "GitLab CI",
+        "Git / GitHub",
+        "Automation scripting"
+      ]
+    },
+    {
+      "id": "skills-datacenter",
+      "name": "Virtualisation & datacenter",
+      "items": [
+        "VMware ESXi (vSphere)",
+        "Nutanix (HCI, Prism Element)",
+        "Proxmox VE",
+        "Infrastructure sizing & mock-ups"
+      ]
+    },
+    {
+      "id": "skills-storage",
+      "name": "Storage & backup",
+      "items": [
+        "SAN / NAS",
+        "iSCSI",
+        "NFS",
+        "TrueNAS Core (ZFS, RAID-Z)",
+        "Veeam Backup & Replication",
+        "Snapshots",
+        "Disaster recovery planning"
+      ]
+    },
+    {
+      "id": "skills-systems",
+      "name": "Systems, networks & security",
+      "items": [
+        "Linux (Debian / Ubuntu)",
+        "Windows Server",
+        "IP addressing",
+        "VLAN",
+        "Nginx (reverse proxy, load balancing)",
+        "Cloudflare",
+        "Server hardening",
+        "Ethical-hacking basics",
+        "Monitoring",
+        "High availability"
+      ]
+    },
+    {
+      "id": "skills-dev",
+      "name": "Development",
+      "items": [
+        "Python (FastAPI, Flask)",
+        "C",
+        "C++",
+        "C#",
+        "Java",
+        "JavaScript / React",
+        ".NET",
+        "SQL (MySQL, PostgreSQL)",
+        "MongoDB"
+      ]
+    }
+  ]
+}

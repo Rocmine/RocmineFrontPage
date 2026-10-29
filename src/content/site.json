@@ -1,0 +1,66 @@
+{
+  "name": "Rochdi Mohamed Amine",
+  "email": "amine.rochdi@rocmine.net",
+  "role": "ai · cloud · infrastructure engineer",
+  "tagline": "I build LLM applications, and the cloud and infrastructure that carries them to production.",
+  "ticker": [
+    "LINUX",
+    "PROXMOX",
+    "VMWARE ESXI",
+    "NUTANIX",
+    "DOCKER",
+    "KUBERNETES",
+    "TERRAFORM",
+    "ANSIBLE",
+    "NGINX",
+    "CLOUDFLARE",
+    "GCP",
+    "AWS",
+    "AZURE",
+    "PYTHON",
+    "FASTAPI",
+    "OLLAMA",
+    "MCP",
+    "RAG"
+  ],
+  "specialties": [
+    {
+      "num": "01",
+      "label": "AI",
+      "href": "/about/#skills-ai"
+    },
+    {
+      "num": "02",
+      "label": "Cloud",
+      "href": "/about/#skills-cloud"
+    },
+    {
+      "num": "03",
+      "label": "Infrastructure",
+      "href": "/about/#skills-datacenter"
+    },
+    {
+      "num": "04",
+      "label": "DevOps",
+      "href": "/about/#skills-cloud"
+    }
+  ],
+  "stats": [
+    {
+      "key": "Based in",
+      "val": "Rabat, Morocco"
+    },
+    {
+      "key": "Degree",
+      "val": "State Engineer · EMSI 2026"
+    },
+    {
+      "key": "Peak traffic",
+      "val": "10M+ visits"
+    },
+    {
+      "key": "Homelab",
+      "val": "2 enterprise servers"
+    }
+  ]
+}

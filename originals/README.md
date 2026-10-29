@@ -1,4 +1,4 @@
-# source/
+# originals/
 
 Originals the site assets are derived from. Nothing here is loaded by the site, and `_config.yml` keeps this folder out of the published site.
 

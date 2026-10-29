@@ -1,0 +1,30 @@
+/* ═══ ABOUT ══════════════════════════════════════════════════════════════ */
+.timeline { max-width: 76ch; }
+.timeline > li {
+  display: grid;
+  grid-template-columns: 2.4rem 5.8rem minmax(0, 1fr);
+  gap: 0 1rem;
+  padding-block: 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+.timeline > li:first-child { padding-top: 0; }
+.timeline > li:last-child { border-bottom: none; }
+.tl-num  { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); padding-top: 0.2rem; }
+.tl-date { font-size: 0.7rem; letter-spacing: 0.06em; color: var(--muted); padding-top: 0.15rem; }
+.tl-role { font-size: 0.86rem; font-weight: 600; line-height: 1.5; color: var(--fg); }
+.tl-org  { font-size: 0.74rem; color: var(--muted); margin-top: 0.15rem; }
+.tl-body { margin-top: 0.7rem; }
+
+.skill-groups { display: grid; gap: 1.6rem; }
+.skill-group { scroll-margin-top: 1.5rem; }
+.skill-group h3 { font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 600; margin-bottom: 0.7rem; }
+.skill-group:target h3 { color: var(--accent); }
+
+.dl-simple li { display: flex; flex-wrap: wrap; gap: 0.2rem 1rem; font-size: 0.8rem; line-height: 1.7; color: var(--body); padding-block: 0.25rem; }
+.dl-simple li span { color: var(--muted); font-size: 0.72rem; }
+
+/* ═══ 404 ════════════════════════════════════════════════════════════════ */
+.nf { min-height: 50vh; display: flex; flex-direction: column; justify-content: center; }
+.nf-code { font-family: 'Unbounded', sans-serif; font-weight: 900; font-size: clamp(5rem, 22vw, 16rem); line-height: 0.85; letter-spacing: -0.05em; }
+.nf-links { display: flex; gap: 1.6rem; flex-wrap: wrap; margin-top: 1.6rem; }
+

@@ -1,0 +1,53 @@
+/* ═══ WORK INDEX ═════════════════════════════════════════════════════════ */
+.work-list { border-top: 1px solid var(--rule); }
+.work-row { border-bottom: 1px solid var(--rule); }
+.work-link {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr) auto 1.4rem;
+  column-gap: clamp(0.6rem, 2vw, 1.6rem);
+  align-items: baseline;
+  padding-block: clamp(1rem, 2.4vh, 1.5rem);
+  text-decoration: none;
+  color: inherit;
+}
+.w-num   { font-size: 0.62rem; letter-spacing: 0.1em; color: var(--accent); }
+.w-title {
+  display: block;
+  font-family: 'Unbounded', sans-serif; font-weight: 700;
+  font-size: clamp(1.05rem, 2.7vw, 2rem); letter-spacing: -0.03em; line-height: 1.15;
+  color: var(--fg);
+  transition: transform 0.35s var(--ease);
+}
+.w-stack { display: block; margin-top: 0.45rem; font-size: 0.68rem; letter-spacing: 0.05em; color: var(--muted); }
+.w-meta  { font-size: 0.66rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: right; }
+.w-arrow { font-size: 0.9rem; color: var(--dim); transition: color 0.2s, transform 0.3s var(--ease); }
+a.work-link:hover .w-title,
+a.work-link:focus-visible .w-title { transform: translateX(0.5rem); }
+a.work-link:hover .w-arrow,
+a.work-link:focus-visible .w-arrow { color: var(--accent); transform: translateX(3px); }
+
+.w-thumb {
+  grid-column: 2 / -1;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s var(--ease);
+}
+.w-thumb > * { display: block; overflow: hidden; min-height: 0; }
+.w-thumb img { width: min(100%, 34rem); height: auto; margin-top: 1.1rem; opacity: 0.9; }
+a.work-link:hover .w-thumb,
+a.work-link:focus-visible .w-thumb { grid-template-rows: 1fr; }
+@media (hover: none) { .w-thumb { grid-template-rows: 1fr; } }
+
+.other-list { display: flex; flex-wrap: wrap; gap: 0.5rem 0.4rem; align-items: center; }
+.other-list li { font-size: 0.74rem; letter-spacing: 0.04em; color: var(--muted); }
+.other-list li + li::before { content: '·'; margin-right: 0.4rem; color: var(--dim); }
+.other-list a { text-decoration: none; border-bottom: 1px solid var(--rule); transition: color 0.16s, border-color 0.16s; }
+.other-list a:hover { color: var(--fg); border-color: var(--accent); }
+
+/* ═══ CASE STUDY ═════════════════════════════════════════════════════════ */
+.case-meta { display: flex; flex-wrap: wrap; gap: 0.4rem 1.4rem; margin-top: 1.3rem; font-size: 0.7rem; letter-spacing: 0.08em; color: var(--muted); }
+.case-meta span { white-space: nowrap; }
+.case-meta b { font-weight: 600; color: var(--fg); }
+.sec-wide { display: block; }
+.sec-wide .sec-label { margin-bottom: 1.2rem; }
+

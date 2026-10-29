@@ -1,4 +1,4 @@
-"""Re-creates the derived site assets from the originals in source/.
+"""Re-creates the derived site assets from the originals in originals/.
 
 Usage (from the repo root):
     python tools/make_assets.py
@@ -14,7 +14,7 @@ from pathlib import Path
 from PIL import Image
 
 ROOT = Path(__file__).resolve().parent.parent
-SRC = ROOT / "source"
+SRC = ROOT / "originals"
 OUT = ROOT / "assets"
 FFMPEG = os.environ.get("FFMPEG", "ffmpeg")
 BG = "0x090912"          # page colour at the header corner: --bg (#06060f) + ~2.5 levels from the grain overlay

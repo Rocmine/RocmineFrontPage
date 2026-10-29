@@ -1,5 +1,11 @@
-# GitHub Pages: do not publish originals, tooling or docs.
+# GitHub Pages: publish only the built site. Sources, tooling, docs and originals stay in the repo.
 exclude:
-  - source
+  - src
   - tools
+  - docs
+  - originals
+  - node_modules
+  - package.json
+  - package-lock.json
   - README.md
+  - .editorconfig

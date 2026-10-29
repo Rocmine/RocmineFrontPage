@@ -1,0 +1,50 @@
+{
+  "_note": "Bullets are HTML (use &amp; for &).",
+  "items": [
+    {
+      "num": "01",
+      "date": "2025 – 2026",
+      "role": "Final-year project intern: datacenter architectures (3-Tier vs HCI) and data protection",
+      "org": "CBI.MA",
+      "bullets": [
+        "Final-year project at CBI.MA, an integrator specialised in datacenter, cloud and cybersecurity infrastructure.",
+        "Designed and deployed a 3-Tier mock-up: VMware ESXi 8.0, TrueNAS Core storage (ZFS RAID-Z1, iSCSI/NFS LUNs).",
+        "Deployed a hyperconverged architecture on Nutanix Community Edition (Prism Element cluster).",
+        "Set up data protection with Veeam Backup &amp; Replication, including native Nutanix AOS snapshots.",
+        "Benchmarked I/O and backup/restore, analysed 5-year TCO and presented recommendations to the CBI.MA teams."
+      ],
+      "link": {
+        "href": "/work/datacenter-hci/",
+        "label": "Read the case study"
+      }
+    },
+    {
+      "num": "02",
+      "date": "2025",
+      "role": "Intern: audit management application (IMANOR)",
+      "org": "CEDAMUS IT",
+      "bullets": [
+        "Built an audit management application (agent checklist): database modelling, back-end API and user interface, in Java and MySQL."
+      ]
+    },
+    {
+      "num": "03",
+      "date": "2024",
+      "role": "Intern: AI application",
+      "org": "Trésorerie Générale du Royaume",
+      "bullets": [
+        "Built an AI application that predicts a company's upcoming financial direct debits.",
+        "Set up the server environment and deployed the application."
+      ]
+    },
+    {
+      "num": "04",
+      "date": "2024",
+      "role": "Developer helper",
+      "org": "Eghata.ma",
+      "bullets": [
+        "Collected and structured geographic data for the Google Maps mapping of the Al Haouz earthquake."
+      ]
+    }
+  ]
+}

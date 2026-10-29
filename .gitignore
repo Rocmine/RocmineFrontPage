@@ -1,1 +1,7 @@
 .claude
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+.DS_Store
+tools/qa/shots/

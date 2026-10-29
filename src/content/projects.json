@@ -1,0 +1,80 @@
+{
+  "_note": "Work list. 'href' makes a row a link; 'thumb' is a file in assets/img/work/. 'other' = names only; give 'url' to link.",
+  "selected": [
+    {
+      "num": "01",
+      "title": "Morocco Earthquake Tracker",
+      "stack": "Express.js · Nginx load balancing · Cloudflare · MariaDB",
+      "meta": "10M+ visits",
+      "href": "/work/earthquake-tracker/",
+      "thumb": "thumb-earthquake-tracker.svg"
+    },
+    {
+      "num": "02",
+      "title": "Datacenter: 3-Tier vs HCI",
+      "stack": "VMware ESXi · TrueNAS · Nutanix · Veeam",
+      "meta": "Final-year project",
+      "href": "/work/datacenter-hci/",
+      "thumb": "thumb-datacenter-hci.svg"
+    },
+    {
+      "num": "03",
+      "title": "RocmineLabs",
+      "stack": "Proxmox VE · Nginx · Cloudflare · Ollama · MCP",
+      "meta": "Homelab",
+      "href": "/lab/",
+      "thumb": "thumb-rocminelabs.svg"
+    },
+    {
+      "num": "04",
+      "title": "Safar AI",
+      "stack": "React · Tailwind CSS · Flask · PostgreSQL",
+      "meta": "Team project"
+    },
+    {
+      "num": "05",
+      "title": "Metascope",
+      "stack": "Python · FastAPI · Docker",
+      "meta": "Personal project"
+    }
+  ],
+  "other": [
+    {
+      "name": "RocAtlas CS2"
+    },
+    {
+      "name": "netboot-lan"
+    },
+    {
+      "name": "SYNFPS stream package"
+    },
+    {
+      "name": "Chediid stream overlays"
+    },
+    {
+      "name": "7wayej.ma"
+    },
+    {
+      "name": "FoodAdmin"
+    },
+    {
+      "name": "TarikhAlHuroob"
+    },
+    {
+      "name": "yalahbadi",
+      "url": "https://github.com/Rocmine/yalahbadi"
+    },
+    {
+      "name": "Oh My Posh theme",
+      "url": "https://github.com/Rocmine/Rocmine_omp_theme"
+    },
+    {
+      "name": "Vencord theme",
+      "url": "https://github.com/Rocmine/DiscordVencordThemeRCMParameter"
+    },
+    {
+      "name": "Fresh-install scripts",
+      "url": "https://github.com/Rocmine/RocmineFreshInstallPrograms"
+    }
+  ]
+}
